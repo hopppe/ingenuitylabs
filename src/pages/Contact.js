@@ -23,7 +23,7 @@ const Contact = () => {
               <button onClick={() => setSubmitted(false)} className="btn">Send another message</button>
             </div>
           ) : (
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" onSubmit={handleSubmit}>
+            <form action="https://formspree.io/f/mpwpbavr" method="POST" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>
                   Name <span className="required">(required)</span>

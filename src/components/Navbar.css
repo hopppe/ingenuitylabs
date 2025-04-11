@@ -17,6 +17,17 @@
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  display: inline-block;
 }
 
 .navbar-logo:hover {
@@ -111,6 +122,14 @@
   
   .navbar-logo {
     font-size: 1.25rem; /* Smaller font size for mobile */
+  }
+  
+  .logo-image {
+    height: 30px; /* Smaller logo on mobile */
+  }
+  
+  .logo-text {
+    display: none; /* Hide text on very small screens */
   }
   
   /* Show hamburger menu on mobile */
