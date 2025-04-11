@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .hero {
@@ -118,13 +119,59 @@
   
   .hero .text, .feature .text {
     max-width: 90%;
-    padding: 3rem 5% 4rem;
+    padding: 3rem 5% 2rem;
     order: 2;
   }
   
   .hero-image, .feature-image {
     width: 100%;
-    height: 55vh;
+    height: 40vh;
     order: 1;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero p, .feature p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .feature h2 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .feature h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-image, .feature-image {
+    height: 35vh;
+  }
+  
+  .hero .text, .feature .text {
+    padding: 2rem 5%;
+  }
+  
+  .hero p, .feature p {
+    font-size: 1rem;
   }
 } 

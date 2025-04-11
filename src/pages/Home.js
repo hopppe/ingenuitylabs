@@ -24,7 +24,7 @@ const Home = () => {
         <div className="text">
           <h2>What We Do:<br />Solutions, not Road<br /> Blocks</h2>
           <p>
-            We build custom apps, design advances<br />
+            We build custom apps, design advanced<br />
             engineering systems, and offer AI consulting<br />
             tailored to your toughest challenges.
           </p>

@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); /* Better tap highlight for mobile */
+}
+
+* {
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Base responsiveness */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove outline for non-keyboard focus */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure keyboard focus is visible */
+:focus-visible {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
 }
