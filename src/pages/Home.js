@@ -22,7 +22,7 @@ const Home = () => {
           <img src={featureImg} alt="Design object" />
         </div>
         <div className="text">
-          <h2>What We Do:<br />Solutions, not Road<br /> Blocks</h2>
+          <h2>What We Do:<br />Design Clarity, Build<br /> Momentum</h2>
           <p>
             We build custom apps, design advanced<br />
             engineering systems, and offer AI consulting<br />
