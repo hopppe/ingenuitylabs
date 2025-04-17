@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/aitravelagent/:path*",
-      "destination": "https://aitravelagent.vercel.app/:path*"
+      "destination": "https://aitravelagent-blue.vercel.app/:path*"
     }
   ]
 }
