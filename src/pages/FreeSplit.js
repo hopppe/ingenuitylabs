@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./FreeSplit.css";
 import screenshot1 from "../assets/IMG_1882.PNG";
 import screenshot2 from "../assets/IMG_1883.PNG";
@@ -128,6 +129,10 @@ const FreeSplit = () => {
             </div>
           </div>
         </section>
+
+        <div className="privacy-policy-link">
+          <Link to="/privacy-policy">Privacy Policy</Link>
+        </div>
       </div>
     </main>
   );

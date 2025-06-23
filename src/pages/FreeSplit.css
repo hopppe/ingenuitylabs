@@ -419,4 +419,23 @@
   .freesplit-cta {
     padding: 1.5rem;
   }
+}
+
+/* Privacy Policy Link */
+.privacy-policy-link {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.privacy-policy-link a {
+  font-size: 0.875rem;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.privacy-policy-link a:hover {
+  color: #334155;
+  text-decoration: underline;
 } 
