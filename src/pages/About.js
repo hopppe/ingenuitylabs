@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./About.css";
 import aboutImg from "../assets/aboutpage.avif";
 
@@ -27,6 +28,24 @@ const About = () => {
         </div>
         <div className="about-image">
           <img src={aboutImg} alt="Design chair" />
+        </div>
+      </section>
+      
+      <section className="projects-section">
+        <div className="projects-container">
+          <h2>Our Projects</h2>
+          <div className="projects-grid">
+            <div className="project-card">
+              <h3>Free Split</h3>
+              <p>An innovative expense splitting application that makes managing shared costs simple and transparent.</p>
+              <Link 
+                to="/freesplit" 
+                className="project-link"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>
