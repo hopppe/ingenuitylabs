@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="footer-right">
         <div className="footer-section">
           <h3>Location</h3>
-          <p>Texas, USA</p>
+          <p>Jeddah, Saudi Arabia</p>
         </div>
         <div className="footer-section">
           <h3>Contact</h3>

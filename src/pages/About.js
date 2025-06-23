@@ -22,7 +22,7 @@ const About = () => {
               designing intelligent software, engineering
               complex systems, or navigating emerging
               technologies, we're built to evolve—just like the
-              world we're shaping.
+              world we're shaping. We are currently located in Jeddah, Saudi Arabia.
             </p>
           </div>
         </div>
@@ -37,13 +37,39 @@ const About = () => {
           <div className="projects-grid">
             <div className="project-card">
               <h3>Free Split</h3>
-              <p>An innovative expense splitting application that makes managing shared costs simple and transparent.</p>
+              <p>An innovative iOS expense splitting application with a clean, intuitive UI and practical design that makes managing shared costs simple and transparent.</p>
               <Link 
                 to="/freesplit" 
                 className="project-link"
               >
                 Learn More →
               </Link>
+            </div>
+            
+            <div className="project-card">
+              <h3>Arabic Stories</h3>
+              <p>An AI-powered language learning platform that creates personalized Arabic stories. Users can choose topics, vocabulary, difficulty levels, and dialects to generate interactive stories with word-by-word English translations.</p>
+              <a 
+                href="https://arabic-stories.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-link"
+              >
+                Visit Site →
+              </a>
+            </div>
+            
+            <div className="project-card">
+              <h3>HiyaTrip</h3>
+              <p>An intelligent AI travel planner that creates comprehensive trip plans based on your destination, dates, interests, and custom preferences. Features detailed itineraries, interactive maps, and budget planning.</p>
+              <a 
+                href="https://www.hiyatrip.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="project-link"
+              >
+                Visit Site →
+              </a>
             </div>
           </div>
         </div>

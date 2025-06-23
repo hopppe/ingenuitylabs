@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./FreeSplit.css";
 import screenshot1 from "../assets/IMG_1882.PNG";
 import screenshot2 from "../assets/IMG_1883.PNG";
 import screenshot3 from "../assets/IMG_1884.PNG";
+import appIcon from "../assets/freesplit6.png";
 
 const FreeSplit = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="freesplit">
       <div className="freesplit-container">
         <div className="freesplit-header">
+          <div className="app-icon-container">
+            <img src={appIcon} alt="Free Split App Icon" className="app-icon" />
+          </div>
           <h1>Free Split</h1>
           <p className="freesplit-tagline">Split expenses effortlessly for free</p>
         </div>

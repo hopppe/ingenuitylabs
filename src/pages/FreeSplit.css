@@ -32,6 +32,22 @@
   font-weight: 400;
 }
 
+.app-icon-container {
+  margin-bottom: 1.5rem;
+}
+
+.app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.app-icon:hover {
+  transform: scale(1.05);
+}
+
 /* Hero Section */
 .freesplit-hero {
   background: white;
@@ -280,6 +296,11 @@
     font-size: 1.1rem;
   }
 
+  .app-icon {
+    width: 100px;
+    height: 100px;
+  }
+
   .freesplit-hero {
     padding: 2rem;
     margin-bottom: 2rem;
@@ -378,6 +399,11 @@
 
   .freesplit-tagline {
     font-size: 1rem;
+  }
+
+  .app-icon {
+    width: 80px;
+    height: 80px;
   }
 
   .freesplit-hero {
