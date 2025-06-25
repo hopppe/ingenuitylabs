@@ -1,4 +1,4 @@
-.freesplit {
+.equisplit {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -8,25 +8,25 @@
   overflow-x: hidden;
 }
 
-.freesplit-container {
+.equisplit-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5rem 5% 3rem;
 }
 
-.freesplit-header {
+.equisplit-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.freesplit-header h1 {
+.equisplit-header h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   font-weight: 600;
   color: #1e293b;
 }
 
-.freesplit-tagline {
+.equisplit-tagline {
   font-size: 1.3rem;
   color: #64748b;
   font-weight: 400;
@@ -49,7 +49,7 @@
 }
 
 /* Hero Section */
-.freesplit-hero {
+.equisplit-hero {
   background: white;
   padding: 3rem;
   border-radius: 12px;
@@ -77,7 +77,7 @@
 }
 
 /* Screenshots Section */
-.freesplit-screenshots {
+.equisplit-screenshots {
   margin-bottom: 3rem;
 }
 
@@ -112,7 +112,7 @@
 }
 
 /* Features Section */
-.freesplit-features {
+.equisplit-features {
   margin-bottom: 3rem;
 }
 
@@ -165,7 +165,7 @@
 }
 
 /* Why Section */
-.freesplit-why {
+.equisplit-why {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
   padding: 3rem;
@@ -207,7 +207,7 @@
 }
 
 /* Support Section */
-.freesplit-support {
+.equisplit-support {
   background: white;
   padding: 2.5rem;
   border-radius: 12px;
@@ -256,7 +256,7 @@
 }
 
 /* CTA Section */
-.freesplit-cta {
+.equisplit-cta {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   text-align: center;
@@ -265,14 +265,14 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.freesplit-cta h2 {
+.equisplit-cta h2 {
   color: white;
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: 600;
 }
 
-.freesplit-cta p {
+.equisplit-cta p {
   color: #d1fae5;
   font-size: 1.1rem;
   margin: 0;
@@ -280,19 +280,19 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .freesplit-container {
+  .equisplit-container {
     padding: 3rem 5% 2rem;
   }
 
-  .freesplit-header {
+  .equisplit-header {
     margin-bottom: 3rem;
   }
 
-  .freesplit-header h1 {
+  .equisplit-header h1 {
     font-size: 2.5rem;
   }
 
-  .freesplit-tagline {
+  .equisplit-tagline {
     font-size: 1.1rem;
   }
 
@@ -301,7 +301,7 @@
     height: 100px;
   }
 
-  .freesplit-hero {
+  .equisplit-hero {
     padding: 2rem;
     margin-bottom: 2rem;
   }
@@ -340,7 +340,7 @@
     font-size: 1.3rem;
   }
 
-  .freesplit-why {
+  .equisplit-why {
     padding: 2rem;
     margin-bottom: 2rem;
   }
@@ -358,7 +358,7 @@
     align-items: center;
   }
 
-  .freesplit-support {
+  .equisplit-support {
     padding: 2rem;
     margin-bottom: 2rem;
   }
@@ -375,29 +375,29 @@
     padding: 1.5rem;
   }
 
-  .freesplit-cta {
+  .equisplit-cta {
     padding: 2rem;
   }
 
-  .freesplit-cta h2 {
+  .equisplit-cta h2 {
     font-size: 1.7rem;
   }
 
-  .freesplit-cta p {
+  .equisplit-cta p {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .freesplit-container {
+  .equisplit-container {
     padding: 2rem 3% 1.5rem;
   }
 
-  .freesplit-header h1 {
+  .equisplit-header h1 {
     font-size: 2rem;
   }
 
-  .freesplit-tagline {
+  .equisplit-tagline {
     font-size: 1rem;
   }
 
@@ -406,7 +406,7 @@
     height: 80px;
   }
 
-  .freesplit-hero {
+  .equisplit-hero {
     padding: 1.5rem;
   }
 
@@ -430,11 +430,11 @@
     grid-template-columns: 1fr;
   }
 
-  .freesplit-why {
+  .equisplit-why {
     padding: 1.5rem;
   }
 
-  .freesplit-support {
+  .equisplit-support {
     padding: 1.5rem;
   }
 
@@ -442,7 +442,7 @@
     padding: 1rem;
   }
 
-  .freesplit-cta {
+  .equisplit-cta {
     padding: 1.5rem;
   }
 }

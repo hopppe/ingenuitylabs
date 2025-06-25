@@ -1,57 +1,57 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./FreeSplit.css";
+import "./EquiSplit.css";
 import screenshot1 from "../assets/IMG_1882.PNG";
 import screenshot2 from "../assets/IMG_1883.PNG";
 import screenshot3 from "../assets/IMG_1884.PNG";
-import appIcon from "../assets/freesplit6.png";
+import appIcon from "../assets/equisplit6.png";
 
-const FreeSplit = () => {
+const EquiSplit = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <main className="freesplit">
-      <div className="freesplit-container">
-        <div className="freesplit-header">
+    <main className="equisplit">
+      <div className="equisplit-container">
+        <div className="equisplit-header">
           <div className="app-icon-container">
-            <img src={appIcon} alt="Free Split App Icon" className="app-icon" />
+            <img src={appIcon} alt="EquiSplit App Icon" className="app-icon" />
           </div>
-          <h1>Free Split</h1>
-          <p className="freesplit-tagline">Split expenses effortlessly for free</p>
+          <h1>EquiSplit</h1>
+          <p className="equisplit-tagline">Split expenses effortlessly for free</p>
         </div>
 
-        <section className="freesplit-hero">
+        <section className="equisplit-hero">
           <div className="hero-content">
             <h2>Tired of expense splitting apps that cost money? Me too.</h2>
             <p>Looking for a straightforward clean interface? Look no further.</p>
             <p>
-              Free Split makes group travel financial management simple and stress-free. Whether you're 
+              EquiSplit makes group travel financial management simple and stress-free. Whether you're 
               backpacking through Europe, planning a weekend getaway, or organizing a group vacation, 
-              Free Split ensures everyone knows exactly who owes what.
+              EquiSplit ensures everyone knows exactly who owes what.
             </p>
           </div>
         </section>
 
-        <section className="freesplit-screenshots">
+        <section className="equisplit-screenshots">
           <div className="screenshot-gallery">
             <div className="screenshot-item">
-              <img src={screenshot1} alt="Free Split Groups Overview" />
+              <img src={screenshot1} alt="EquiSplit Groups Overview" />
               <p>Organize multiple expense groups with clear balance tracking</p>
             </div>
             <div className="screenshot-item">
-              <img src={screenshot2} alt="Free Split Expense Tracking" />
+              <img src={screenshot2} alt="EquiSplit Expense Tracking" />
               <p>Add and track expenses with detailed transaction history</p>
             </div>
             <div className="screenshot-item">
-              <img src={screenshot3} alt="Free Split Balance Calculations" />
+              <img src={screenshot3} alt="EquiSplit Balance Calculations" />
               <p>Automatic balance calculations and payment settlements</p>
             </div>
           </div>
         </section>
 
-        <section className="freesplit-features">
+        <section className="equisplit-features">
           <div className="feature-grid">
             <div className="feature-card">
               <div className="feature-icon">✈️</div>
@@ -117,11 +117,11 @@ const FreeSplit = () => {
           </div>
         </section>
 
-        <section className="freesplit-support">
+        <section className="equisplit-support">
           <div className="support-content">
             <h2>Support & Contact</h2>
-            <p>
-              Need help with Free Split or have questions about the app? 
+                    <p>
+        Need help with EquiSplit or have questions about the app? 
               We're here to assist you with any issues or feedback you might have.
             </p>
             <div className="contact-info">
@@ -146,4 +146,4 @@ const FreeSplit = () => {
   );
 };
 
-export default FreeSplit; 
+export default EquiSplit; 

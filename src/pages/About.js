@@ -36,10 +36,10 @@ const About = () => {
           <h2>Our Projects</h2>
           <div className="projects-grid">
             <div className="project-card">
-              <h3>Free Split</h3>
+              <h3>EquiSplit</h3>
               <p>An innovative iOS expense splitting application with a clean, intuitive UI and practical design that makes managing shared costs simple and transparent.</p>
               <Link 
-                to="/freesplit" 
+                                  to="/equisplit" 
                 className="project-link"
               >
                 Learn More →

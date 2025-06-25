@@ -6,14 +6,14 @@ const PrivacyPolicy = () => {
     <main className="privacy-policy">
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
-          <h1>Privacy Policy for Free Split</h1>
+          <h1>Privacy Policy for EquiSplit</h1>
           <p className="last-updated"><strong>Last updated: June 23, 2025</strong></p>
         </div>
 
         <section className="policy-section">
           <h2>Introduction</h2>
           <p>
-            Free Split ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application Free Split (the "App").
+            EquiSplit ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application EquiSplit (the "App").
           </p>
           <p>
             By using our App, you agree to the collection and use of information in accordance with this Privacy Policy.
@@ -127,7 +127,7 @@ const PrivacyPolicy = () => {
         <section className="policy-section">
           <h2>Children's Privacy</h2>
           <p>
-            Free Split is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us, and we will take steps to remove such information.
+            EquiSplit is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us, and we will take steps to remove such information.
           </p>
         </section>
 
@@ -175,7 +175,7 @@ const PrivacyPolicy = () => {
           <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
           <p>
             <strong>Email</strong>: <a href="mailto:ethan@ingenuitylabs.net">ethan@ingenuitylabs.net</a><br/>
-            <strong>App Support</strong>: Through the Free Split app settings
+            <strong>App Support</strong>: Through the EquiSplit app settings
           </p>
         </section>
 
@@ -200,7 +200,7 @@ const PrivacyPolicy = () => {
 
         <div className="policy-footer">
           <p>
-            This Privacy Policy is effective as of the date listed above and applies to all users of the Free Split app.
+            This Privacy Policy is effective as of the date listed above and applies to all users of the EquiSplit app.
           </p>
         </div>
       </div>
