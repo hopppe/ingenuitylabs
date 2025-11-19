@@ -38,20 +38,31 @@ const About = () => {
             <div className="project-card">
               <h3>EquiSplit</h3>
               <p>An innovative iOS expense splitting application with a clean, intuitive UI and practical design that makes managing shared costs simple and transparent.</p>
-              <Link 
-                                  to="/equisplit" 
+              <Link
+                                  to="/equisplit"
                 className="project-link"
               >
                 Learn More →
               </Link>
             </div>
-            
+
+            <div className="project-card">
+              <h3>Kingdom Arabic</h3>
+              <p>A local-first iOS app for learning Arabic through Bible reading and spaced repetition flashcards. Read the complete Arabic Bible with instant word translations, then master vocabulary with an Anki-style learning system.</p>
+              <Link
+                to="/kingdom-arabic"
+                className="project-link"
+              >
+                Learn More →
+              </Link>
+            </div>
+
             <div className="project-card">
               <h3>Arabic Stories</h3>
               <p>An AI-powered language learning platform that creates personalized Arabic stories. Users can choose topics, vocabulary, difficulty levels, and dialects to generate interactive stories with word-by-word English translations.</p>
-              <a 
-                href="https://arabic-stories.vercel.app" 
-                target="_blank" 
+              <a
+                href="https://arabic-stories.vercel.app"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="project-link"
               >
