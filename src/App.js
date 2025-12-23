@@ -7,6 +7,8 @@ import EquiSplit from "./pages/EquiSplit";
 import KingdomArabic from "./pages/KingdomArabic";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import KingdomArabicPrivacy from "./pages/KingdomArabicPrivacy";
+import StarDate from "./pages/StarDate";
+import StarDatePrivacy from "./pages/StarDatePrivacy";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -23,6 +25,8 @@ function App() {
         <Route path="/kingdom-arabic" element={<KingdomArabic />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/kingdom-arabic-privacy" element={<KingdomArabicPrivacy />} />
+        <Route path="/star-date" element={<StarDate />} />
+        <Route path="/star-date-privacy" element={<StarDatePrivacy />} />
       </Routes>
       <Footer />
     </Router>

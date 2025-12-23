@@ -73,14 +73,25 @@ const About = () => {
             <div className="project-card">
               <h3>HiyaTrip</h3>
               <p>An intelligent AI travel planner that creates comprehensive trip plans based on your destination, dates, interests, and custom preferences. Features detailed itineraries, interactive maps, and budget planning.</p>
-              <a 
-                href="https://www.hiyatrip.com" 
-                target="_blank" 
+              <a
+                href="https://www.hiyatrip.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="project-link"
               >
                 Visit Site →
               </a>
+            </div>
+
+            <div className="project-card">
+              <h3>Star Date</h3>
+              <p>Discover what the universe looked like on the days that matter most. Enter any date—a birthday, anniversary, or memorial—and see the actual NASA Astronomy Picture of the Day from that moment in time.</p>
+              <Link
+                to="/star-date"
+                className="project-link"
+              >
+                Learn More →
+              </Link>
             </div>
           </div>
         </div>
