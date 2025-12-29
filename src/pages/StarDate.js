@@ -167,6 +167,8 @@ const StarDate = () => {
 
         <div className="privacy-policy-link">
           <Link to="/star-date-privacy">Privacy Policy</Link>
+          <span className="link-separator"> | </span>
+          <Link to="/star-date-terms">Terms of Use</Link>
         </div>
       </div>
     </main>

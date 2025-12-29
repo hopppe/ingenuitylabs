@@ -9,6 +9,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import KingdomArabicPrivacy from "./pages/KingdomArabicPrivacy";
 import StarDate from "./pages/StarDate";
 import StarDatePrivacy from "./pages/StarDatePrivacy";
+import StarDateTerms from "./pages/StarDateTerms";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -27,6 +28,7 @@ function App() {
         <Route path="/kingdom-arabic-privacy" element={<KingdomArabicPrivacy />} />
         <Route path="/star-date" element={<StarDate />} />
         <Route path="/star-date-privacy" element={<StarDatePrivacy />} />
+        <Route path="/star-date-terms" element={<StarDateTerms />} />
       </Routes>
       <Footer />
     </Router>
