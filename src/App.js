@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import EquiSplit from "./pages/EquiSplit";
 import KingdomArabic from "./pages/KingdomArabic";
+import KingdomArabicDownload from "./pages/KingdomArabicDownload";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import KingdomArabicPrivacy from "./pages/KingdomArabicPrivacy";
 import StarDate from "./pages/StarDate";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/equisplit" element={<EquiSplit />} />
         <Route path="/kingdom-arabic" element={<KingdomArabic />} />
+        <Route path="/kingdom-arabic/download" element={<KingdomArabicDownload />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/kingdom-arabic-privacy" element={<KingdomArabicPrivacy />} />
         <Route path="/star-date" element={<StarDate />} />

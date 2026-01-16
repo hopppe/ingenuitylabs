@@ -79,6 +79,114 @@
   margin-bottom: 0;
 }
 
+/* Download Section */
+.kingdom-arabic-download {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.kingdom-arabic-download h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f1c40f;
+  font-weight: 600;
+}
+
+.universal-download-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #f1c40f 0%, #dda15e 100%);
+  color: #1a0f2e;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.universal-download-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(241, 196, 15, 0.5);
+}
+
+.universal-download-button:active {
+  transform: translateY(-1px);
+}
+
+.store-buttons-label {
+  font-size: 0.95rem;
+  color: #adb5bd;
+  margin-bottom: 1rem;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 200px;
+}
+
+.store-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.app-store {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.google-play {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.store-button-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.store-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.store-subtitle {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.store-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 /* Screenshots Section */
 .kingdom-arabic-screenshots {
   margin-bottom: 3rem;
@@ -264,6 +372,26 @@
     font-size: 1rem;
   }
 
+  .kingdom-arabic-download h2 {
+    font-size: 1.7rem;
+  }
+
+  .universal-download-button {
+    font-size: 1.1rem;
+    padding: 0.9rem 2.5rem;
+  }
+
+  .store-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .store-button {
+    min-width: 220px;
+    justify-content: center;
+  }
+
   .screenshot-gallery {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -332,6 +460,33 @@
 
   .hero-content h2 {
     font-size: 1.5rem;
+  }
+
+  .kingdom-arabic-download h2 {
+    font-size: 1.5rem;
+  }
+
+  .universal-download-button {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .store-buttons-label {
+    font-size: 0.85rem;
+  }
+
+  .store-button {
+    min-width: 200px;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .store-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .store-title {
+    font-size: 1.1rem;
   }
 
   .screenshot-item {
