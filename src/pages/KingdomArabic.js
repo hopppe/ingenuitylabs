@@ -11,6 +11,30 @@ const KingdomArabic = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleDownloadClick = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // iOS detection
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href = "https://apps.apple.com/us/app/kingdom-arabic/id6755405579";
+      return;
+    }
+
+    // Android detection
+    if (/android/i.test(userAgent)) {
+      window.location.href = "https://play.google.com/store/apps/details?id=com.ingenuitylabs.LearnArabic";
+      return;
+    }
+
+    // Default to App Store for Mac users, otherwise scroll to show both options
+    if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+      window.location.href = "https://apps.apple.com/us/app/kingdom-arabic/id6755405579";
+    } else {
+      // For desktop users, scroll to show both store options
+      document.querySelector('.store-buttons')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <main className="kingdom-arabic">
       <div className="kingdom-arabic-container">
@@ -39,6 +63,10 @@ const KingdomArabic = () => {
 
         <section className="kingdom-arabic-download">
           <h2>Download the App</h2>
+          <button onClick={handleDownloadClick} className="universal-download-button">
+            Download Now
+          </button>
+          <p className="store-buttons-label">Or choose your platform:</p>
           <div className="store-buttons">
             <a
               href="https://apps.apple.com/us/app/kingdom-arabic/id6755405579"

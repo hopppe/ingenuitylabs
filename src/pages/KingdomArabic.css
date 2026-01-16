@@ -92,6 +92,36 @@
   font-weight: 600;
 }
 
+.universal-download-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #f1c40f 0%, #dda15e 100%);
+  color: #1a0f2e;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.universal-download-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(241, 196, 15, 0.5);
+}
+
+.universal-download-button:active {
+  transform: translateY(-1px);
+}
+
+.store-buttons-label {
+  font-size: 0.95rem;
+  color: #adb5bd;
+  margin-bottom: 1rem;
+}
+
 .store-buttons {
   display: flex;
   justify-content: center;
@@ -346,6 +376,11 @@
     font-size: 1.7rem;
   }
 
+  .universal-download-button {
+    font-size: 1.1rem;
+    padding: 0.9rem 2.5rem;
+  }
+
   .store-buttons {
     flex-direction: column;
     align-items: center;
@@ -429,6 +464,15 @@
 
   .kingdom-arabic-download h2 {
     font-size: 1.5rem;
+  }
+
+  .universal-download-button {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .store-buttons-label {
+    font-size: 0.85rem;
   }
 
   .store-button {
