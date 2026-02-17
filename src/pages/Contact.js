@@ -3,10 +3,36 @@ import "./Contact.css";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
-  
-  const handleSubmit = (e) => {
-    // Form will still submit to Formspree, this just handles showing the confirmation
-    setSubmitted(true);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setError(null);
+
+    const formData = new FormData(e.target);
+    const data = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
   
   return (
@@ -23,7 +49,7 @@ const Contact = () => {
               <button onClick={() => setSubmitted(false)} className="btn">Send another message</button>
             </div>
           ) : (
-            <form action="https://formspree.io/f/mpwpbavr" method="POST" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>
                   Name <span className="required">(required)</span>
@@ -54,7 +80,10 @@ const Contact = () => {
                 <textarea name="message" required></textarea>
               </div>
 
-              <button type="submit" className="send-button">SEND</button>
+              {error && <p className="error-message">{error}</p>}
+              <button type="submit" className="send-button" disabled={sending}>
+                {sending ? "SENDING..." : "SEND"}
+              </button>
             </form>
           )}
         </div>

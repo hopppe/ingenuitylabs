@@ -3,6 +3,63 @@ import { Link } from "react-router-dom";
 import "./About.css";
 import aboutImg from "../assets/aboutpage.avif";
 
+const PROJECTS = [
+  {
+    name: "EquiSplit",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/8f/b9/338fb9d9-afa2-8071-2709-74f67ffcf5ba/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    platform: "iOS",
+    description: "An innovative iOS expense splitting app with a clean, intuitive UI that makes managing shared costs simple and transparent. Free, forever.",
+    linkLabel: "Learn More",
+    linkTo: "/equisplit",
+    internal: true,
+  },
+  {
+    name: "Kingdom Arabic",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/77/6e/da776ea8-7c74-af01-7216-f47adbc82657/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    platform: "iOS & Android",
+    description: "Learn Arabic through Bible reading and spaced repetition flashcards. Read the complete Arabic Bible with instant word translations, then master vocabulary with an Anki-style learning system.",
+    linkLabel: "Learn More",
+    linkTo: "/kingdom-arabic",
+    internal: true,
+  },
+  {
+    name: "HiyaTrip",
+    icon: "https://www.hiyatrip.com/hiya-logo.png",
+    platform: "Web",
+    description: "An intelligent AI travel planner that creates comprehensive trip plans based on your destination, dates, interests, and preferences. Features detailed itineraries and budget planning.",
+    linkLabel: "Visit Site",
+    linkTo: "https://www.hiyatrip.com",
+    internal: false,
+  },
+  {
+    name: "Star Date",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/ed/ba/24edba6c-b4bc-ab01-5d94-a1229d4681bf/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    platform: "iOS",
+    description: "Discover what the universe looked like on the days that matter most. Enter any date and see the actual NASA Astronomy Picture of the Day from that moment in time.",
+    linkLabel: "Learn More",
+    linkTo: "/star-date",
+    internal: true,
+  },
+  {
+    name: "anaFluent",
+    icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/6b/46/4b6b46cf-8f80-1561-3eae-6d227b7ad050/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+    platform: "iOS & Android",
+    description: "A comprehensive English learning app powered by AI. Practice with real-time voice conversations, CEFR-aligned lessons, spaced repetition flashcards, and personalized daily plans.",
+    linkLabel: "Visit Site",
+    linkTo: "https://anafluent.com",
+    internal: false,
+  },
+  {
+    name: "KSA Flag Football",
+    iconText: "KSAFF",
+    platform: "Web",
+    description: "Saudi Arabia's official flag football organization. Operates 14 teams across 3 regions with 130+ players, preparing athletes for the 2028 LA Olympics. Every body counts.",
+    linkLabel: "Visit Site",
+    linkTo: "https://www.ksaflagfootball.com",
+    internal: false,
+  },
+];
+
 const About = () => {
   return (
     <main className="about">
@@ -30,69 +87,49 @@ const About = () => {
           <img src={aboutImg} alt="Design chair" />
         </div>
       </section>
-      
+
       <section className="projects-section">
         <div className="projects-container">
           <h2>Our Projects</h2>
           <div className="projects-grid">
-            <div className="project-card">
-              <h3>EquiSplit</h3>
-              <p>An innovative iOS expense splitting application with a clean, intuitive UI and practical design that makes managing shared costs simple and transparent.</p>
-              <Link
-                                  to="/equisplit"
-                className="project-link"
-              >
-                Learn More →
-              </Link>
-            </div>
-
-            <div className="project-card">
-              <h3>Kingdom Arabic</h3>
-              <p>A local-first iOS app for learning Arabic through Bible reading and spaced repetition flashcards. Read the complete Arabic Bible with instant word translations, then master vocabulary with an Anki-style learning system.</p>
-              <Link
-                to="/kingdom-arabic"
-                className="project-link"
-              >
-                Learn More →
-              </Link>
-            </div>
-
-            <div className="project-card">
-              <h3>Arabic Stories</h3>
-              <p>An AI-powered language learning platform that creates personalized Arabic stories. Users can choose topics, vocabulary, difficulty levels, and dialects to generate interactive stories with word-by-word English translations.</p>
-              <a
-                href="https://arabic-stories.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link"
-              >
-                Visit Site →
-              </a>
-            </div>
-            
-            <div className="project-card">
-              <h3>HiyaTrip</h3>
-              <p>An intelligent AI travel planner that creates comprehensive trip plans based on your destination, dates, interests, and custom preferences. Features detailed itineraries, interactive maps, and budget planning.</p>
-              <a
-                href="https://www.hiyatrip.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link"
-              >
-                Visit Site →
-              </a>
-            </div>
-
-            <div className="project-card">
-              <h3>Star Date</h3>
-              <p>Discover what the universe looked like on the days that matter most. Enter any date—a birthday, anniversary, or memorial—and see the actual NASA Astronomy Picture of the Day from that moment in time.</p>
-              <Link
-                to="/star-date"
-                className="project-link"
-              >
-                Learn More →
-              </Link>
-            </div>
+            {PROJECTS.map((project) => (
+              <div className="project-card" key={project.name}>
+                <div className="project-card-top">
+                  {project.iconText ? (
+                    <div className="project-icon-wrap project-icon-text">
+                      {project.iconText}
+                    </div>
+                  ) : (
+                    <div className="project-icon-wrap">
+                      <img
+                        src={project.icon}
+                        alt={`${project.name} icon`}
+                        className="project-icon"
+                      />
+                    </div>
+                  )}
+                  <div className="project-title-group">
+                    <h3>{project.name}</h3>
+                    <span className="project-platform">{project.platform}</span>
+                  </div>
+                </div>
+                <p className="project-description">{project.description}</p>
+                {project.internal ? (
+                  <Link to={project.linkTo} className="project-link">
+                    {project.linkLabel} →
+                  </Link>
+                ) : (
+                  <a
+                    href={project.linkTo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    {project.linkLabel} →
+                  </a>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>

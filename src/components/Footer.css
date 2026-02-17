@@ -51,8 +51,8 @@
   text-decoration: underline;
   transition: color 0.2s ease;
   text-underline-offset: 2px;
-  padding: 6px 0;
   display: inline-block;
+  line-height: 1.6;
 }
 
 .footer-link:hover {
