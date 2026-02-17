@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Home.css";
 import heroImg from "../assets/hero.png";
-import kingdomIcon from "../assets/kingdom-arabic-icon.png";
 import stardateIcon from "../assets/Gemini_Generated_Image_6h6erd6h6erd6h6e.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -242,16 +241,16 @@ const Home = () => {
           </h2>
         </div>
         <div className="work-grid">
-          <Link to="/kingdom-arabic" className="work-item">
-            <div className="work-icon">
-              <img src={kingdomIcon} alt="Kingdom Arabic" />
+          <a href="https://www.ksaflagfootball.com" target="_blank" rel="noopener noreferrer" className="work-item">
+            <div className="work-icon work-icon-text">
+              KSAFF
             </div>
             <div className="work-info">
-              <span className="work-tag">Mobile App</span>
-              <h3>Kingdom Arabic</h3>
-              <p>Language learning platform for Arabic learners</p>
+              <span className="work-tag">Web</span>
+              <h3>KSA Flag Football</h3>
+              <p>Saudi Arabia's official flag football organization</p>
             </div>
-          </Link>
+          </a>
           <Link to="/about" className="work-item">
             <div className="work-icon">
               <img src={anafluentIcon} alt="Anafluent" />
