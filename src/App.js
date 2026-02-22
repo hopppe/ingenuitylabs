@@ -11,6 +11,9 @@ import KingdomArabicPrivacy from "./pages/KingdomArabicPrivacy";
 import StarDate from "./pages/StarDate";
 import StarDatePrivacy from "./pages/StarDatePrivacy";
 import StarDateTerms from "./pages/StarDateTerms";
+import PrayerPause from "./pages/PrayerPause";
+import PrayerPausePrivacy from "./pages/PrayerPausePrivacy";
+import PrayerPauseTerms from "./pages/PrayerPauseTerms";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -31,6 +34,9 @@ function App() {
         <Route path="/star-date" element={<StarDate />} />
         <Route path="/star-date-privacy" element={<StarDatePrivacy />} />
         <Route path="/star-date-terms" element={<StarDateTerms />} />
+        <Route path="/prayer-pause" element={<PrayerPause />} />
+        <Route path="/prayer-pause-privacy" element={<PrayerPausePrivacy />} />
+        <Route path="/prayer-pause-terms" element={<PrayerPauseTerms />} />
       </Routes>
       <Footer />
     </Router>

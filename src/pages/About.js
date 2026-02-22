@@ -2,8 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
 import aboutImg from "../assets/aboutpage.avif";
+import prayerPauseIcon from "../assets/prayerpause-icon.png";
 
 const PROJECTS = [
+  {
+    name: "Prayer Pause",
+    icon: prayerPauseIcon,
+    platform: "iOS",
+    description: "Block distracting apps until you complete your daily prayer or scripture memory session. Build a daily habit of putting God first, before your phone.",
+    linkLabel: "Learn More",
+    linkTo: "/prayer-pause",
+    internal: true,
+  },
   {
     name: "EquiSplit",
     icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/8f/b9/338fb9d9-afa2-8071-2709-74f67ffcf5ba/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",

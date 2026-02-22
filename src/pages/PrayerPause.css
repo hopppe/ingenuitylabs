@@ -1,0 +1,332 @@
+.prayer-pause {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #0F1C2E 0%, #1E3A5F 50%, #2E5A8F 100%);
+  color: #f8f9fa;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.prayer-pause-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 5% 3rem;
+}
+
+.prayer-pause-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.prayer-pause-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #c8d8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.prayer-pause-tagline {
+  font-size: 1.3rem;
+  color: #8ab4f8;
+  font-weight: 400;
+}
+
+.prayer-pause .app-icon-container {
+  margin-bottom: 1.5rem;
+}
+
+.prayer-pause .app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 40px rgba(74, 144, 217, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.prayer-pause .app-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Hero Section */
+.prayer-pause-hero {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prayer-pause .hero-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #8ab4f8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.prayer-pause .hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #c8d8f0;
+  margin-bottom: 1.2rem;
+}
+
+.prayer-pause .hero-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Features Section */
+.prayer-pause-features {
+  margin-bottom: 3rem;
+}
+
+.prayer-pause .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.prayer-pause .feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prayer-pause .feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(74, 144, 217, 0.15);
+}
+
+.prayer-pause .feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prayer-pause .feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8ab4f8;
+  font-weight: 600;
+}
+
+.prayer-pause .feature-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prayer-pause .feature-card li {
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #c8d8f0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.prayer-pause .feature-card li::before {
+  content: "\2727";
+  position: absolute;
+  left: 0;
+  color: #8ab4f8;
+  font-size: 0.8rem;
+}
+
+/* Support Section */
+.prayer-pause .prayer-pause-support {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prayer-pause .support-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #8ab4f8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.prayer-pause .support-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #c8d8f0;
+  margin-bottom: 1.2rem;
+}
+
+.prayer-pause .contact-info {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.prayer-pause .support-email {
+  color: #8ab4f8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.prayer-pause .support-email:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.prayer-pause .support-note {
+  font-size: 0.95rem;
+  color: #7a9cc8;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Privacy Policy Link */
+.prayer-pause .privacy-policy-link {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.prayer-pause .privacy-policy-link a {
+  font-size: 0.875rem;
+  color: #7a9cc8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.prayer-pause .privacy-policy-link a:hover {
+  color: #8ab4f8;
+  text-decoration: underline;
+}
+
+.prayer-pause .link-separator {
+  color: #7a9cc8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .prayer-pause-container {
+    padding: 3rem 5% 2rem;
+  }
+
+  .prayer-pause-header {
+    margin-bottom: 3rem;
+  }
+
+  .prayer-pause-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .prayer-pause-tagline {
+    font-size: 1.1rem;
+  }
+
+  .prayer-pause .app-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .prayer-pause-hero {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .prayer-pause .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .prayer-pause .hero-content p {
+    font-size: 1rem;
+  }
+
+  .prayer-pause .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .prayer-pause .feature-card {
+    padding: 2rem;
+  }
+
+  .prayer-pause .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .prayer-pause .prayer-pause-support {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .prayer-pause .support-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .prayer-pause .support-content p {
+    font-size: 1rem;
+  }
+
+  .prayer-pause .contact-info {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prayer-pause-container {
+    padding: 2rem 3% 1.5rem;
+  }
+
+  .prayer-pause-header h1 {
+    font-size: 2rem;
+  }
+
+  .prayer-pause-tagline {
+    font-size: 1rem;
+  }
+
+  .prayer-pause .app-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .prayer-pause-hero {
+    padding: 1.5rem;
+  }
+
+  .prayer-pause .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .prayer-pause .feature-card {
+    padding: 1.5rem;
+  }
+
+  .prayer-pause .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prayer-pause .prayer-pause-support {
+    padding: 1.5rem;
+  }
+
+  .prayer-pause .contact-info {
+    padding: 1rem;
+  }
+}
