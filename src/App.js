@@ -14,6 +14,9 @@ import StarDateTerms from "./pages/StarDateTerms";
 import PrayerPause from "./pages/PrayerPause";
 import PrayerPausePrivacy from "./pages/PrayerPausePrivacy";
 import PrayerPauseTerms from "./pages/PrayerPauseTerms";
+import SalahShield from "./pages/SalahShield";
+import SalahShieldPrivacy from "./pages/SalahShieldPrivacy";
+import SalahShieldTerms from "./pages/SalahShieldTerms";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -37,6 +40,9 @@ function App() {
         <Route path="/prayer-pause" element={<PrayerPause />} />
         <Route path="/prayer-pause-privacy" element={<PrayerPausePrivacy />} />
         <Route path="/prayer-pause-terms" element={<PrayerPauseTerms />} />
+        <Route path="/salah-shield" element={<SalahShield />} />
+        <Route path="/salah-shield-privacy" element={<SalahShieldPrivacy />} />
+        <Route path="/salah-shield-terms" element={<SalahShieldTerms />} />
       </Routes>
       <Footer />
     </Router>

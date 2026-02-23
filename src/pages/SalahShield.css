@@ -1,0 +1,332 @@
+.salah-shield {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #0A1628 0%, #132E4A 50%, #1B4D3E 100%);
+  color: #f8f9fa;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.salah-shield-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 5% 3rem;
+}
+
+.salah-shield-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.salah-shield-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #B8D4C8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.salah-shield-tagline {
+  font-size: 1.3rem;
+  color: #6BBF8A;
+  font-weight: 400;
+}
+
+.salah-shield .app-icon-container {
+  margin-bottom: 1.5rem;
+}
+
+.salah-shield .app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 40px rgba(107, 191, 138, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.salah-shield .app-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Hero Section */
+.salah-shield-hero {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.salah-shield .hero-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #6BBF8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.salah-shield .hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #B8D4C8;
+  margin-bottom: 1.2rem;
+}
+
+.salah-shield .hero-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Features Section */
+.salah-shield-features {
+  margin-bottom: 3rem;
+}
+
+.salah-shield .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.salah-shield .feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.salah-shield .feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(107, 191, 138, 0.15);
+}
+
+.salah-shield .feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.salah-shield .feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #6BBF8A;
+  font-weight: 600;
+}
+
+.salah-shield .feature-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.salah-shield .feature-card li {
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #B8D4C8;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.salah-shield .feature-card li::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  color: #6BBF8A;
+  font-size: 0.8rem;
+}
+
+/* Support Section */
+.salah-shield .salah-shield-support {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.salah-shield .support-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #6BBF8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.salah-shield .support-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #B8D4C8;
+  margin-bottom: 1.2rem;
+}
+
+.salah-shield .contact-info {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.salah-shield .support-email {
+  color: #6BBF8A;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.salah-shield .support-email:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.salah-shield .support-note {
+  font-size: 0.95rem;
+  color: #7A9C8A;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Privacy Policy Link */
+.salah-shield .privacy-policy-link {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.salah-shield .privacy-policy-link a {
+  font-size: 0.875rem;
+  color: #7A9C8A;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.salah-shield .privacy-policy-link a:hover {
+  color: #6BBF8A;
+  text-decoration: underline;
+}
+
+.salah-shield .link-separator {
+  color: #7A9C8A;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .salah-shield-container {
+    padding: 3rem 5% 2rem;
+  }
+
+  .salah-shield-header {
+    margin-bottom: 3rem;
+  }
+
+  .salah-shield-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .salah-shield-tagline {
+    font-size: 1.1rem;
+  }
+
+  .salah-shield .app-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .salah-shield-hero {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .salah-shield .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .salah-shield .hero-content p {
+    font-size: 1rem;
+  }
+
+  .salah-shield .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .salah-shield .feature-card {
+    padding: 2rem;
+  }
+
+  .salah-shield .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .salah-shield .salah-shield-support {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .salah-shield .support-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .salah-shield .support-content p {
+    font-size: 1rem;
+  }
+
+  .salah-shield .contact-info {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .salah-shield-container {
+    padding: 2rem 3% 1.5rem;
+  }
+
+  .salah-shield-header h1 {
+    font-size: 2rem;
+  }
+
+  .salah-shield-tagline {
+    font-size: 1rem;
+  }
+
+  .salah-shield .app-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .salah-shield-hero {
+    padding: 1.5rem;
+  }
+
+  .salah-shield .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .salah-shield .feature-card {
+    padding: 1.5rem;
+  }
+
+  .salah-shield .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salah-shield .salah-shield-support {
+    padding: 1.5rem;
+  }
+
+  .salah-shield .contact-info {
+    padding: 1rem;
+  }
+}

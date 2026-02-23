@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./About.css";
 import aboutImg from "../assets/aboutpage.avif";
 import prayerPauseIcon from "../assets/prayerpause-icon.png";
+import salahShieldIcon from "../assets/salahshield-icon.png";
 
 const PROJECTS = [
   {
@@ -67,6 +68,15 @@ const PROJECTS = [
     linkLabel: "Visit Site",
     linkTo: "https://www.ksaflagfootball.com",
     internal: false,
+  },
+  {
+    name: "SalahShield",
+    icon: salahShieldIcon,
+    platform: "iOS",
+    description: "Block distracting apps until you complete your daily salah. Track all five prayers with accurate times, Quran ayahs in Arabic + English, and a guided prayer flow.",
+    linkLabel: "Learn More",
+    linkTo: "/salah-shield",
+    internal: true,
   },
 ];
 
