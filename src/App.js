@@ -17,6 +17,10 @@ import PrayerPauseTerms from "./pages/PrayerPauseTerms";
 import SalahShield from "./pages/SalahShield";
 import SalahShieldPrivacy from "./pages/SalahShieldPrivacy";
 import SalahShieldTerms from "./pages/SalahShieldTerms";
+import { WhatsAppCRM, WhatsAppCRMAr } from "./pages/saudi/WhatsAppCRM";
+import { Nitaqat, NitaqatAr } from "./pages/saudi/Nitaqat";
+import { Fatoora, FatooraAr } from "./pages/saudi/Fatoora";
+import { Booking, BookingAr } from "./pages/saudi/Booking";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -43,6 +47,15 @@ function App() {
         <Route path="/salah-shield" element={<SalahShield />} />
         <Route path="/salah-shield-privacy" element={<SalahShieldPrivacy />} />
         <Route path="/salah-shield-terms" element={<SalahShieldTerms />} />
+        {/* Saudi SaaS Landing Pages */}
+        <Route path="/whatsapp-crm" element={<WhatsAppCRM />} />
+        <Route path="/ar/whatsapp-crm" element={<WhatsAppCRMAr />} />
+        <Route path="/nitaqat" element={<Nitaqat />} />
+        <Route path="/ar/nitaqat" element={<NitaqatAr />} />
+        <Route path="/fatoora" element={<Fatoora />} />
+        <Route path="/ar/fatoora" element={<FatooraAr />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/ar/booking" element={<BookingAr />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,0 +1,708 @@
+/* ══════════════════════════════════════
+   Saudi SaaS Landing Pages
+   Matches existing Ingenuity Labs aesthetic
+   ══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+/* ── Page wrapper ── */
+
+.saudi-landing {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── RTL variant ── */
+
+.saudi-landing.rtl {
+  direction: rtl;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.saudi-landing.rtl .sl-hero-content {
+  padding-left: 0;
+  padding-right: 6%;
+}
+
+.saudi-landing.rtl .sl-section-label {
+  font-family: 'Inter', sans-serif;
+}
+
+.saudi-landing.rtl .sl-pain-number,
+.saudi-landing.rtl .sl-form-note,
+.saudi-landing.rtl .sl-proof-count {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Hero ── */
+
+.sl-hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f172a;
+  overflow: hidden;
+  position: relative;
+}
+
+.sl-hero-content {
+  flex: 0 0 55%;
+  padding: 6rem 4% 6rem 6%;
+  z-index: 2;
+}
+
+.sl-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.sl-hero-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: sl-pulse 2s ease-in-out infinite;
+}
+
+@keyframes sl-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.sl-hero h1 {
+  font-size: 4rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.sl-hero-sub {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.sl-hero-price {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  padding: 0.4rem 1.25rem;
+  border-radius: 0;
+  margin-top: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.sl-hero-visual {
+  flex: 0 0 45%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+
+.sl-hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.3) 0%, transparent 50%),
+    linear-gradient(225deg, rgba(30, 41, 59, 0.5) 0%, transparent 50%);
+}
+
+/* ── Buttons ── */
+
+.saudi-landing .sl-btn {
+  display: inline-block;
+  padding: 0.9rem 2.25rem;
+  border: 1px solid rgba(241, 245, 249, 0.3);
+  border-radius: 0;
+  background: transparent;
+  color: #f1f5f9;
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.saudi-landing .sl-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #f1f5f9;
+}
+
+.saudi-landing .sl-btn-solid {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #f1f5f9;
+}
+
+.saudi-landing .sl-btn-solid:hover {
+  background: transparent;
+  color: #f1f5f9;
+  border-color: rgba(241, 245, 249, 0.3);
+}
+
+.saudi-landing.rtl .sl-btn {
+  font-family: 'Tajawal', sans-serif;
+  letter-spacing: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ── Pain Section ── */
+
+.sl-pain {
+  background: #f8fafc;
+  padding: 7rem 6%;
+  color: #0f172a;
+}
+
+.sl-section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.sl-section-title {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0 0 3rem 0;
+  color: #0f172a;
+}
+
+.sl-pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.sl-pain-card {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.sl-pain-number {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.sl-pain-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.35;
+}
+
+.sl-pain-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Solution Section ── */
+
+.sl-solution {
+  background: #0f172a;
+  padding: 7rem 6%;
+}
+
+.sl-solution .sl-section-label {
+  color: #64748b;
+}
+
+.sl-solution .sl-section-title {
+  color: #f1f5f9;
+}
+
+.sl-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.sl-solution-card {
+  padding: 2.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.sl-solution-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.sl-solution-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.35;
+}
+
+.sl-solution-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Mockup Section ── */
+
+.sl-mockup {
+  background: #1e293b;
+  padding: 5rem 6%;
+  border-top: 1px solid rgba(148, 163, 184, 0.05);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+}
+
+.sl-mockup-label {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+}
+
+.sl-mockup-frame {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.sl-mockup-topbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.sl-mockup-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.2);
+}
+
+.sl-mockup-dot:first-child { background: #ef4444; opacity: 0.6; }
+.sl-mockup-dot:nth-child(2) { background: #eab308; opacity: 0.6; }
+.sl-mockup-dot:nth-child(3) { background: #22c55e; opacity: 0.6; }
+
+.sl-mockup-body {
+  padding: 2rem;
+  min-height: 280px;
+}
+
+/* ── Waitlist Section ── */
+
+.sl-waitlist {
+  background: #0f172a;
+  padding: 7rem 6%;
+  text-align: center;
+}
+
+.sl-waitlist-inner {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.sl-waitlist .sl-section-label {
+  text-align: center;
+}
+
+.sl-waitlist-title {
+  font-size: 2.75rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.sl-waitlist-sub {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  margin: 0 0 3rem 0;
+  line-height: 1.6;
+}
+
+.sl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.saudi-landing.rtl .sl-form {
+  text-align: right;
+}
+
+.sl-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.sl-form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.saudi-landing.rtl .sl-form-label {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.95rem;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.sl-form-input {
+  padding: 0.85rem 1rem;
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 0;
+  font-size: 1rem;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.saudi-landing.rtl .sl-form-input {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.sl-form-input.ltr {
+  direction: ltr;
+  font-family: 'Inter', sans-serif;
+}
+
+.sl-form-input::placeholder {
+  color: #475569;
+}
+
+.sl-form-input:focus {
+  outline: none;
+  border-color: #64748b;
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.sl-form-submit {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.95rem;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #f1f5f9;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.35s ease, color 0.35s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.saudi-landing.rtl .sl-form-submit {
+  font-family: 'Tajawal', sans-serif;
+  letter-spacing: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.sl-form-submit:hover {
+  background: transparent;
+  color: #f1f5f9;
+}
+
+.sl-form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sl-form-note {
+  font-size: 0.75rem;
+  color: #475569;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* ── Social Proof ── */
+
+.sl-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.sl-proof-avatars {
+  display: flex;
+}
+
+.sl-proof-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #0f172a;
+  margin-left: -6px;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.sl-proof-avatar:first-child { margin-left: 0; }
+
+.sl-proof-text {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.sl-proof-count {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+/* ── Success State ── */
+
+.sl-success {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.sl-success-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sl-success h3 {
+  font-size: 1.5rem;
+  color: #f1f5f9;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.sl-success p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ── Line Divider ── */
+
+.sl-line {
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+  margin-bottom: 3rem;
+}
+
+/* ── Scroll Animations ── */
+
+.sl-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sl-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sl-delay-1 { transition-delay: 0.1s; }
+.sl-delay-2 { transition-delay: 0.2s; }
+.sl-delay-3 { transition-delay: 0.3s; }
+
+/* ── Language Toggle ── */
+
+.sl-lang-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.saudi-landing.rtl .sl-lang-toggle {
+  right: auto;
+  left: 2rem;
+}
+
+.sl-lang-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.sl-lang-btn.active {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .sl-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .sl-hero-content {
+    flex: none;
+    width: 100%;
+    padding: 3rem 6% 2.5rem;
+    order: 2;
+  }
+
+  .saudi-landing.rtl .sl-hero-content {
+    padding: 3rem 6% 2.5rem;
+  }
+
+  .sl-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .sl-hero-sub {
+    max-width: 100%;
+  }
+
+  .sl-hero-visual {
+    flex: none;
+    width: 100%;
+    height: 30vh;
+    order: 1;
+  }
+
+  .sl-pain,
+  .sl-solution {
+    padding: 5rem 6%;
+  }
+
+  .sl-section-title {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .sl-pain-grid,
+  .sl-solution-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sl-solution-card {
+    padding: 2rem 0;
+    border: none;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .sl-mockup {
+    padding: 3rem 6%;
+  }
+
+  .sl-mockup-body {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .sl-waitlist {
+    padding: 5rem 6%;
+  }
+
+  .sl-waitlist-title {
+    font-size: 2rem;
+  }
+
+  .saudi-landing .sl-btn {
+    padding: 0.85rem 2rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .sl-lang-toggle {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .saudi-landing.rtl .sl-lang-toggle {
+    left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sl-hero h1 {
+    font-size: 2rem;
+  }
+
+  .sl-section-title {
+    font-size: 1.85rem;
+  }
+
+  .sl-waitlist-title {
+    font-size: 1.75rem;
+  }
+}
