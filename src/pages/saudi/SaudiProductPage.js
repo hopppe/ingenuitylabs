@@ -75,11 +75,6 @@ export default function SaudiProductPage({ content, lang = 'en' }) {
     }
   };
 
-  const otherLang = isAr ? 'en' : 'ar';
-  const otherPath = isAr
-    ? `/${content.slug}`
-    : `/ar/${content.slug}`;
-
   return (
     <div className={`saudi-landing ${isAr ? 'rtl' : ''}`}>
       {/* Language toggle */}
