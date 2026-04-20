@@ -21,6 +21,7 @@ import { WhatsAppCRM, WhatsAppCRMAr } from "./pages/saudi/WhatsAppCRM";
 import { Nitaqat, NitaqatAr } from "./pages/saudi/Nitaqat";
 import { Fatoora, FatooraAr } from "./pages/saudi/Fatoora";
 import { Booking, BookingAr } from "./pages/saudi/Booking";
+import AIClassForm from "./pages/AIClassForm";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -56,6 +57,7 @@ function App() {
         <Route path="/ar/fatoora" element={<FatooraAr />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/ar/booking" element={<BookingAr />} />
+        <Route path="/aiclass-form" element={<AIClassForm />} />
       </Routes>
       <Footer />
     </Router>
