@@ -29,8 +29,8 @@ img, video, canvas, svg {
   outline: none;
 }
 
-/* Ensure keyboard focus is visible */
+/* Ensure keyboard focus is visible; currentColor stays legible on light and dark sections */
 :focus-visible {
-  outline: 2px solid #4a90e2;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }

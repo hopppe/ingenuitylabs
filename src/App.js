@@ -22,6 +22,10 @@ import { Nitaqat, NitaqatAr } from "./pages/saudi/Nitaqat";
 import { Fatoora, FatooraAr } from "./pages/saudi/Fatoora";
 import { Booking, BookingAr } from "./pages/saudi/Booking";
 import AIClassForm from "./pages/AIClassForm";
+import AIHomeServices from "./pages/AIHomeServices";
+import AIMeetingPrep from "./pages/AIMeetingPrep";
+import AISaudiBusiness from "./pages/AISaudiBusiness";
+import AIRealEstate from "./pages/AIRealEstate";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -58,6 +62,10 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/ar/booking" element={<BookingAr />} />
         <Route path="/aiclass-form" element={<AIClassForm />} />
+        <Route path="/ai-for-home-services" element={<AIHomeServices />} />
+        <Route path="/ai-meeting-prep" element={<AIMeetingPrep />} />
+        <Route path="/ai-for-saudi-business" element={<AISaudiBusiness />} />
+        <Route path="/ai-for-real-estate" element={<AIRealEstate />} />
       </Routes>
       <Footer />
     </Router>

@@ -19,6 +19,29 @@
   transition: color 0.2s ease;
   display: flex;
   align-items: center;
+  gap: 0.7rem;
+}
+
+/* Logo mark: cream tile + ink glyphs on dark nav, inverted on light nav */
+.logo-mark {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo-mark .logo-tile {
+  fill: #f2f1ec;
+}
+
+.logo-mark .logo-glyph {
+  fill: #16150f;
+}
+
+.navbar-light .logo-mark .logo-tile {
+  fill: #16150f;
+}
+
+.navbar-light .logo-mark .logo-glyph {
+  fill: #f2f1ec;
 }
 
 .logo-image {
@@ -67,6 +90,39 @@
 
 .nav-links.active:hover {
   color: #f8fafc;
+}
+
+/* ── Light variant (home page) ── */
+
+.navbar.navbar-light {
+  background-color: #f2f1ec;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(22, 21, 15, 0.14);
+}
+
+.navbar-light .navbar-logo,
+.navbar-light .nav-links {
+  color: #16150f;
+}
+
+.navbar-light .navbar-logo:hover,
+.navbar-light .nav-links:hover,
+.navbar-light .nav-links.active:hover {
+  color: #24473a;
+}
+
+.navbar-light .hamburger,
+.navbar-light .hamburger::before,
+.navbar-light .hamburger::after {
+  background-color: #16150f;
+}
+
+.navbar-light .hamburger.open {
+  background: transparent;
+}
+
+.navbar-light .nav-menu {
+  background-color: #f2f1ec;
 }
 
 /* Hide hamburger menu on desktop */
@@ -130,6 +186,11 @@
   
   .logo-text {
     display: none; /* Hide text on very small screens */
+  }
+
+  .logo-mark {
+    width: 30px;
+    height: 30px;
   }
   
   /* Show hamburger menu on mobile */

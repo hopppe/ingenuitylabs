@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const { pathname } = useLocation();
+  const LIGHT_PATHS = ['/', '/about', '/contact', '/ai-for-home-services', '/ai-meeting-prep', '/ai-for-saudi-business', '/ai-for-real-estate'];
+  const isLight = LIGHT_PATHS.includes(pathname);
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -25,9 +28,23 @@ function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="navbar">
+    <nav className={isLight ? 'navbar navbar-light' : 'navbar'}>
       <Link to="/" className="navbar-logo">
-        Ingenuity Labs
+        <svg
+          className="logo-mark"
+          viewBox="0 0 48 48"
+          width="34"
+          height="34"
+          role="img"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <rect className="logo-tile" x="0" y="0" width="48" height="48" rx="10" />
+          <rect className="logo-glyph" x="13" y="13" width="5" height="22" />
+          <rect className="logo-glyph" x="24" y="13" width="5" height="22" />
+          <rect className="logo-glyph" x="24" y="30" width="11" height="5" />
+        </svg>
+        <span className="logo-text">Ingenuity Labs</span>
       </Link>
       
       {/* Hamburger menu button for mobile */}

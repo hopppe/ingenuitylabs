@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Seo from "../components/Seo";
 import "./Contact.css";
 
 const Contact = () => {
@@ -41,15 +42,25 @@ const Contact = () => {
   
   return (
     <main className="contact">
+      <Seo
+        title="Contact Ingenuity Labs — Start an AI, App, or Web Project"
+        description="Tell us what eats your team's time. We'll tell you honestly whether custom AI can fix it, what it costs, and how fast you'd have it. Or email ethan@ingenuitylabs.net."
+        path="/contact"
+      />
       <div className="contact-container">
         <div className="contact-content">
           <h1>Contact Us</h1>
-          <p className="contact-intro">Have a challenge in mind? Let's talk.</p>
+          <p className="contact-intro">Have a challenge in mind? Let’s talk.</p>
+          <p className="contact-direct">
+            Prefer email? Write to us directly at{" "}
+            <a href="mailto:ethan@ingenuitylabs.net">ethan@ingenuitylabs.net</a>
+            {" "}— we reply within one business day.
+          </p>
 
           {submitted ? (
             <div className="success-message">
               <h2>Thank you for your message!</h2>
-              <p>We'll get back to you as soon as possible.</p>
+              <p>We’ll get back to you as soon as possible.</p>
               <button onClick={() => setSubmitted(false)} className="btn">Send another message</button>
             </div>
           ) : (

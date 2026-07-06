@@ -1,3 +1,40 @@
 # https://www.robotstxt.org/robotstxt.html
+# All crawlers welcome, including AI assistants and their search bots.
 User-agent: *
 Disallow:
+
+# AI assistant crawlers — explicitly welcome
+User-agent: GPTBot
+Disallow:
+
+User-agent: OAI-SearchBot
+Disallow:
+
+User-agent: ChatGPT-User
+Disallow:
+
+User-agent: ClaudeBot
+Disallow:
+
+User-agent: Claude-User
+Disallow:
+
+User-agent: Claude-SearchBot
+Disallow:
+
+User-agent: PerplexityBot
+Disallow:
+
+User-agent: Perplexity-User
+Disallow:
+
+User-agent: Google-Extended
+Disallow:
+
+User-agent: Applebot-Extended
+Disallow:
+
+User-agent: CCBot
+Disallow:
+
+Sitemap: https://ingenuitylabs.net/sitemap.xml

@@ -1,0 +1,32 @@
+# Ingenuity Labs
+
+> Ingenuity Labs is a product studio that builds custom AI solutions, mobile apps, and websites for businesses. Based in Jeddah, Saudi Arabia, with Texas roots. We build AI systems around the way a business already works — wired into its CRM, calendar, inbox, and field tools — plus the apps and websites to match. Contact: ethan@ingenuitylabs.net
+
+## What we build
+
+- Custom AI systems: quoting engines, meeting-prep assistants, CRM and inbox automation, customer-facing AI assistants, internal copilots. Built on the client's own playbook and integrated with tools they already use (Jobber, HubSpot, Salesforce, Slack, WhatsApp, and in-house systems).
+- Mobile apps: iOS and Android, from design through App Store launch, including AI-powered features.
+- Websites and web platforms: marketing sites and full-stack web products.
+
+## Proof of work
+
+- Friendly Fixers (Conway, Arkansas): an AI quoting console for a handyman company. A field technician types a few sentences and attaches a photo; the system returns a priced, ready-to-send quote — line items, add-ons, and close-rate notes — drawn from the company's own pricing playbook, in under a minute, pasted straight into Jobber.
+- anaFluent: AI English tutor app with real-time voice conversation (https://anafluent.com).
+- KSA Flag Football: website for Saudi Arabia's official flag football organization (https://www.ksaflagfootball.com).
+
+## Pages
+
+- [Home](https://ingenuitylabs.net/): What we build, the Friendly Fixers case study, selected work, and how we work.
+- [AI for home-service businesses](https://ingenuitylabs.net/ai-for-home-services): Field quoting, lead response, and back-office automation for handyman, HVAC, plumbing, and landscaping companies. Includes FAQ.
+- [AI meeting prep and CRM automation](https://ingenuitylabs.net/ai-meeting-prep): Morning briefings from CRM/inbox/calendar, self-updating CRM records, follow-up drafting for sales and service teams. Includes FAQ.
+- [AI for Saudi businesses](https://ingenuitylabs.net/ai-for-saudi-business): Bilingual Arabic-English AI assistants, WhatsApp-first automation, ZATCA-compliant e-invoicing tooling. Built from Jeddah. Includes FAQ.
+- [AI for real estate and property management](https://ingenuitylabs.net/ai-for-real-estate): Lead response, tenant and owner communications, lease and document intelligence. Includes FAQ.
+- [About](https://ingenuitylabs.net/about): Who we are and the full list of shipped products.
+- [Contact](https://ingenuitylabs.net/contact): Project inquiry form; direct email ethan@ingenuitylabs.net, reply within one business day.
+
+## How we work
+
+1. Scope the win: find the task that eats the most hours, define what done looks like, give a fixed quote.
+2. Prototype in days: a working version on real data within one to two weeks.
+3. Ship and integrate: wired into the client's existing tools; production systems typically ship in four to eight weeks.
+4. Support and improve: ongoing tuning after launch.

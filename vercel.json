@@ -3,6 +3,10 @@
     {
       "source": "/aitravelagent/:path*",
       "destination": "https://aitravelagent-blue.vercel.app/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
     }
   ]
 }

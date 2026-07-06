@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 import "./About.css";
 import aboutImg from "../assets/aboutpage.avif";
 import prayerPauseIcon from "../assets/prayerpause-icon.png";
@@ -83,6 +84,11 @@ const PROJECTS = [
 const About = () => {
   return (
     <main className="about">
+      <Seo
+        title="About Ingenuity Labs — AI, App & Web Development Studio"
+        description="Ingenuity Labs is a product studio building custom AI solutions, mobile apps, and websites. Texas roots, based in Jeddah, Saudi Arabia — see the products we've shipped."
+        path="/about"
+      />
       <section className="about-header">
         <div className="about-text">
           <h1>Who we are</h1>

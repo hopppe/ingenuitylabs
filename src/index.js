@@ -4,8 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+// Prerendered pages (see scripts/prerender.js) ship with HTML already in
+// #root so no-JS crawlers see content; in browsers React replaces it.
+const container = document.getElementById('root');
+container.replaceChildren();
+ReactDOM.createRoot(container).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
