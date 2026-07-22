@@ -55,6 +55,8 @@ const EXTRA_ROUTES = [
   "/prayer-pause-privacy",
   "/prayer-pause-terms",
   "/salah-shield-privacy",
+  "/kneefix-privacy",
+  "/kneefix-terms",
   "/salah-shield-terms",
   "/aiclass-form",
 ];

@@ -16,6 +16,8 @@ import PrayerPausePrivacy from "./pages/PrayerPausePrivacy";
 import PrayerPauseTerms from "./pages/PrayerPauseTerms";
 import SalahShield from "./pages/SalahShield";
 import SalahShieldPrivacy from "./pages/SalahShieldPrivacy";
+import KneeFixPrivacy from "./pages/KneeFixPrivacy";
+import KneeFixTerms from "./pages/KneeFixTerms";
 import SalahShieldTerms from "./pages/SalahShieldTerms";
 import { WhatsAppCRM, WhatsAppCRMAr } from "./pages/saudi/WhatsAppCRM";
 import { Nitaqat, NitaqatAr } from "./pages/saudi/Nitaqat";
@@ -51,6 +53,8 @@ function App() {
         <Route path="/prayer-pause-terms" element={<PrayerPauseTerms />} />
         <Route path="/salah-shield" element={<SalahShield />} />
         <Route path="/salah-shield-privacy" element={<SalahShieldPrivacy />} />
+        <Route path="/kneefix-privacy" element={<KneeFixPrivacy />} />
+        <Route path="/kneefix-terms" element={<KneeFixTerms />} />
         <Route path="/salah-shield-terms" element={<SalahShieldTerms />} />
         {/* Saudi SaaS Landing Pages */}
         <Route path="/whatsapp-crm" element={<WhatsAppCRM />} />
