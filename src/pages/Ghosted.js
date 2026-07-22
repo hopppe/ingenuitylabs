@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./GhostRace.css";
-import appIcon from "../assets/ghostrace-icon.png";
+import "./Ghosted.css";
+import appIcon from "../assets/ghosted-icon.png";
 
 // Where friends without the app go. Swap for the real TestFlight public link
 // once the first build is uploaded (until then: join-the-beta email).
-const DOWNLOAD_URL = "mailto:ethan@ingenuitylabs.net?subject=Ghost%20Race%20beta&body=I%20want%20in%20on%20the%20Ghost%20Race%20beta!";
+const DOWNLOAD_URL = "mailto:ethan@ingenuitylabs.net?subject=Ghosted%20beta&body=I%20want%20in%20on%20the%20Ghosted%20beta!";
 
-const GhostRace = () => {
+const Ghosted = () => {
   const [challenge, setChallenge] = useState(null);
 
   useEffect(() => {
@@ -19,19 +19,19 @@ const GhostRace = () => {
         meters: params.get("m") || "?",
         // Rebuild the custom-scheme deep link so an installed app can still be
         // opened straight from this page (universal link normally handles it first).
-        appLink: `ghostrace://challenge?${params.toString()}`,
+        appLink: `ghosted://challenge?${params.toString()}`,
       });
     }
   }, []);
 
   return (
-    <main className="ghostrace">
+    <main className="ghosted">
       <div className="gr-stars" aria-hidden="true" />
 
       <div className="gr-container">
         <div className="gr-header">
-          <img src={appIcon} alt="Ghost Race" className="gr-icon" />
-          <h1 className="gr-wordmark">GHOST RACE</h1>
+          <img src={appIcon} alt="Ghosted" className="gr-icon" />
+          <h1 className="gr-wordmark">GHOSTED</h1>
           <p className="gr-tagline">race your friends' ghosts</p>
         </div>
 
@@ -40,7 +40,7 @@ const GhostRace = () => {
             <div className="gr-challenge-card">
               <div className="gr-ghost-emoji">👻</div>
               <h2>
-                <span className="gr-rival">{challenge.name}</span> challenges you
+                You've been <span className="gr-rival">Ghosted</span> by {challenge.name}
               </h2>
               <div className="gr-score">
                 <span className="gr-score-num">{challenge.meters}</span>
@@ -52,7 +52,7 @@ const GhostRace = () => {
                 Race their ghost
               </a>
               <a className="gr-btn gr-btn-ghost" href={DOWNLOAD_URL}>
-                Don't have Ghost Race? Get it →
+                Don't have Ghosted? Get it →
               </a>
               <p className="gr-fineprint">
                 Tapping “Race their ghost” opens the game if it's installed. Their exact run is
@@ -66,8 +66,8 @@ const GhostRace = () => {
             <p>
               You're Pip, a little ghost. <strong>Hold</strong> to dematerialize and slip through
               solid walls; <strong>release</strong> to go solid through the energy gates. Every run
-              you make becomes a <em>ghost</em> your friends race against — and every challenge is a
-              rematch waiting to happen.
+              you make becomes a <em>ghost</em> your friends race against — beat theirs, send it
+              back, and someone's getting Ghosted.
             </p>
             <a className="gr-btn gr-btn-primary" href={DOWNLOAD_URL}>
               Join the beta
@@ -99,15 +99,15 @@ const GhostRace = () => {
         )}
 
         <footer className="gr-footer">
-          <a href="/ghostrace-privacy">Privacy</a>
+          <a href="/ghosted-privacy">Privacy</a>
+          <span>·</span>
+          <a href="/ghosted-terms">Terms</a>
           <span>·</span>
           <a href="mailto:ethan@ingenuitylabs.net">Contact</a>
-          <span>·</span>
-          <span>Ingenuity Labs</span>
         </footer>
       </div>
     </main>
   );
 };
 
-export default GhostRace;
+export default Ghosted;

@@ -19,8 +19,9 @@ import SalahShieldPrivacy from "./pages/SalahShieldPrivacy";
 import KneeFixPrivacy from "./pages/KneeFixPrivacy";
 import KneeFixTerms from "./pages/KneeFixTerms";
 import SalahShieldTerms from "./pages/SalahShieldTerms";
-import GhostRace from "./pages/GhostRace";
-import GhostRacePrivacy from "./pages/GhostRacePrivacy";
+import Ghosted from "./pages/Ghosted";
+import GhostedPrivacy from "./pages/GhostedPrivacy";
+import GhostedTerms from "./pages/GhostedTerms";
 import { WhatsAppCRM, WhatsAppCRMAr } from "./pages/saudi/WhatsAppCRM";
 import { Nitaqat, NitaqatAr } from "./pages/saudi/Nitaqat";
 import { Fatoora, FatooraAr } from "./pages/saudi/Fatoora";
@@ -57,9 +58,10 @@ function App() {
         <Route path="/salah-shield-privacy" element={<SalahShieldPrivacy />} />
         <Route path="/kneefix-privacy" element={<KneeFixPrivacy />} />
         <Route path="/kneefix-terms" element={<KneeFixTerms />} />
-        <Route path="/ghostrace" element={<GhostRace />} />
-        <Route path="/ghostrace/c" element={<GhostRace />} />
-        <Route path="/ghostrace-privacy" element={<GhostRacePrivacy />} />
+        <Route path="/ghosted" element={<Ghosted />} />
+        <Route path="/ghosted/c" element={<Ghosted />} />
+        <Route path="/ghosted-privacy" element={<GhostedPrivacy />} />
+        <Route path="/ghosted-terms" element={<GhostedTerms />} />
         <Route path="/salah-shield-terms" element={<SalahShieldTerms />} />
         {/* Saudi SaaS Landing Pages */}
         <Route path="/whatsapp-crm" element={<WhatsAppCRM />} />

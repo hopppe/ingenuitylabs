@@ -1,19 +1,19 @@
 import React from "react";
 import "./PrivacyPolicy.css";
 
-const GhostRacePrivacy = () => {
+const GhostedPrivacy = () => {
   return (
     <main className="privacy-policy">
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
-          <h1>Privacy Policy for Ghost Race</h1>
+          <h1>Privacy Policy for Ghosted</h1>
           <p className="last-updated"><strong>Last updated: July 21, 2026</strong></p>
         </div>
 
         <section className="policy-section">
           <h2>Introduction</h2>
           <p>
-            Ingenuity Labs LLC ("we," "our," or "us") operates the Ghost Race mobile application
+            Ingenuity Labs LLC ("we," "our," or "us") operates the Ghosted mobile application
             (the "App"). This Privacy Policy explains our practices regarding information collection
             and use. By using our App, you agree to the practices described here.
           </p>
@@ -23,7 +23,7 @@ const GhostRacePrivacy = () => {
           <h2>Information We Collect</h2>
           <h3>Personal Information</h3>
           <p>
-            <strong>Ghost Race does not collect, store, or transmit any personal information to our
+            <strong>Ghosted does not collect, store, or transmit any personal information to our
             servers.</strong> The App has no accounts, no login, and no analytics or tracking SDKs.
           </p>
 
@@ -74,4 +74,4 @@ const GhostRacePrivacy = () => {
   );
 };
 
-export default GhostRacePrivacy;
+export default GhostedPrivacy;
