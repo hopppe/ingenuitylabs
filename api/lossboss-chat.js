@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const { messages, model, max_tokens, temperature, stream, response_format } =
+  const { messages, model, max_tokens, temperature, stream, response_format, tools, tool_choice } =
     req.body || {};
 
   if (!Array.isArray(messages) || messages.length === 0) {
@@ -32,6 +32,8 @@ module.exports = async (req, res) => {
     stream: !!stream,
   };
   if (response_format) payload.response_format = response_format;
+  if (Array.isArray(tools) && tools.length <= 16) payload.tools = tools;
+  if (tool_choice) payload.tool_choice = tool_choice;
 
   try {
     const upstream = await fetch("https://api.openai.com/v1/chat/completions", {
