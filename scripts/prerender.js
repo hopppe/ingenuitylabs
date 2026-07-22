@@ -60,6 +60,9 @@ const EXTRA_ROUTES = [
   "/salah-shield-terms",
   "/aiclass-form",
   "/ghosted",
+  "/lossboss",
+  "/lossboss-privacy",
+  "/lossboss-terms",
   "/ghosted-privacy",
   "/ghosted-terms",
 ];

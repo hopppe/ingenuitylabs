@@ -20,6 +20,9 @@ import KneeFixPrivacy from "./pages/KneeFixPrivacy";
 import KneeFixTerms from "./pages/KneeFixTerms";
 import SalahShieldTerms from "./pages/SalahShieldTerms";
 import Ghosted from "./pages/Ghosted";
+import LossBoss from "./pages/LossBoss";
+import LossBossPrivacy from "./pages/LossBossPrivacy";
+import LossBossTerms from "./pages/LossBossTerms";
 import GhostedPrivacy from "./pages/GhostedPrivacy";
 import GhostedTerms from "./pages/GhostedTerms";
 import { WhatsAppCRM, WhatsAppCRMAr } from "./pages/saudi/WhatsAppCRM";
@@ -58,6 +61,9 @@ function App() {
         <Route path="/salah-shield-privacy" element={<SalahShieldPrivacy />} />
         <Route path="/kneefix-privacy" element={<KneeFixPrivacy />} />
         <Route path="/kneefix-terms" element={<KneeFixTerms />} />
+        <Route path="/lossboss" element={<LossBoss />} />
+        <Route path="/lossboss-privacy" element={<LossBossPrivacy />} />
+        <Route path="/lossboss-terms" element={<LossBossTerms />} />
         <Route path="/ghosted" element={<Ghosted />} />
         <Route path="/ghosted/c" element={<Ghosted />} />
         <Route path="/ghosted-privacy" element={<GhostedPrivacy />} />
