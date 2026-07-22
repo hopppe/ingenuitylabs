@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "AJ4TDM8U35.com.ethanhoppe.ghostrace",
+        "paths": [ "/ghostrace/c", "/ghostrace/c/*" ]
+      }
+    ]
+  }
+}

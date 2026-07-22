@@ -59,6 +59,8 @@ const EXTRA_ROUTES = [
   "/kneefix-terms",
   "/salah-shield-terms",
   "/aiclass-form",
+  "/ghostrace",
+  "/ghostrace-privacy",
 ];
 
 function routesFromSitemap() {
