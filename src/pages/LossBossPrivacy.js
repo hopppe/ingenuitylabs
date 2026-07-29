@@ -56,21 +56,21 @@ const LossBossPrivacy = () => {
             memes into your chat. To find one, it writes a short search phrase — a few generic
             words such as "tired" or "monday morning" — and the App sends <em>only that phrase</em>{" "}
             through our relay server to{" "}
-            <a href="https://tenor.com" target="_blank" rel="noreferrer">Tenor</a>, a GIF and meme
-            library operated by Google. Your chat messages, name, photos, and personal stats are
-            never sent to Tenor. Because the search runs through our relay, your IP address is not
-            shared with Tenor at this step, and our relay does not log or retain the phrase.
+            <a href="https://klipy.com" target="_blank" rel="noreferrer">KLIPY</a>, a third-party
+            meme and GIF library. Your chat messages, name, photos, and personal stats are never
+            sent to KLIPY. Because the search runs through our relay, your IP address is not shared
+            with KLIPY at this step, and our relay does not log or retain the phrase.
           </p>
           <p>
-            The App then downloads the meme image itself directly from Tenor's servers. As with
+            The App then downloads the meme image itself directly from KLIPY's servers. As with
             loading any image from the internet, that request reveals your device's IP address and
-            which image was requested to Tenor and Google, subject to{" "}
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
-              Google's Privacy Policy
-            </a>. Meme results are restricted to Tenor's strictest content filter.
+            which image was requested to KLIPY, subject to their{" "}
+            <a href="https://klipy.com/support/privacy-policy" target="_blank" rel="noreferrer">
+              privacy policy
+            </a>. Meme results are restricted to KLIPY's strictest content filter.
           </p>
           <p>
-            If you use any other coach personality, the App never contacts Tenor. You can switch
+            If you use any other coach personality, the App never contacts KLIPY. You can switch
             personalities anytime in Settings → Coach personality.
           </p>
         </section>

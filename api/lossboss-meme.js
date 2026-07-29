@@ -1,9 +1,18 @@
-// LossBoss meme search — stateless passthrough to Tenor.
-// Keeps the Tenor key server-side. Returns a shortlist of candidate memes;
-// the app picks one it hasn't shown recently. Stores nothing.
+// LossBoss meme search — stateless passthrough to KLIPY.
+//
+// Google shut the Tenor API down on 2026-06-30, so this uses KLIPY's
+// static-memes endpoint (the drop-in Tenor replacement). Keeps the key
+// server-side. Returns a shortlist of candidates; the app picks one it
+// hasn't shown recently. Stores nothing.
 
-const TENOR_ENDPOINT = "https://tenor.googleapis.com/v2/search";
-const LIMIT = 12;
+const BASE = "https://api.klipy.com/api/v1";
+const PER_PAGE = 12;
+// Accepted values: off | low | medium | high. This is a 4+ wellness app.
+const CONTENT_FILTER = "high";
+// Preferred size bucket, then fallbacks. Chat bubbles cap around 260pt wide.
+const SIZES = ["md", "sm", "hd", "xs"];
+// PNG/JPG first — universally decodable on iOS; WebP and GIF as fallbacks.
+const FORMATS = ["png", "jpg", "jpeg", "webp", "gif"];
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
@@ -14,7 +23,7 @@ module.exports = async (req, res) => {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  if (!process.env.TENOR_API_KEY) {
+  if (!process.env.KLIPY_API_KEY) {
     // Not configured yet — the app treats this as "no meme" and falls back to text.
     return res.status(503).json({ error: "Meme search not configured", results: [] });
   }
@@ -25,36 +34,41 @@ module.exports = async (req, res) => {
   }
 
   const url =
-    `${TENOR_ENDPOINT}?q=${encodeURIComponent(q)}` +
-    `&key=${process.env.TENOR_API_KEY}` +
-    `&client_key=lossboss` +
-    `&limit=${LIMIT}` +
-    // "high" is Tenor's strictest filter (G-rated) — this is a 4+ wellness app.
-    `&contentfilter=high` +
-    `&media_filter=tinygif,gif` +
-    `&random=true`;
+    `${BASE}/${encodeURIComponent(process.env.KLIPY_API_KEY)}/static-memes/search` +
+    `?q=${encodeURIComponent(q)}` +
+    `&page=1&per_page=${PER_PAGE}` +
+    `&content_filter=${CONTENT_FILTER}`;
 
   try {
     const upstream = await fetch(url);
     if (!upstream.ok) {
       const err = await upstream.text();
-      console.error("Tenor error:", upstream.status, err.slice(0, 300));
+      console.error("KLIPY error:", upstream.status, err.slice(0, 300));
       return res.status(502).json({ error: "Meme search failed", results: [] });
     }
-    const data = await upstream.json();
+    const body = await upstream.json();
 
-    const results = (data.results || [])
-      .map((r) => {
-        // tinygif keeps chat scrolling cheap; fall back to the full gif.
-        const media = (r.media_formats || {}).tinygif || (r.media_formats || {}).gif;
-        if (!media || !media.url) return null;
-        const dims = media.dims || [];
-        return {
-          url: media.url,
-          description: r.content_description || r.title || q,
-          width: dims[0] || 0,
-          height: dims[1] || 0,
-        };
+    // Shape: { result, data: { data: [ { slug, title, file: { md: { png: {url,width,height} } } } ] } }
+    const items = (body && body.data && body.data.data) || [];
+    const results = items
+      .map((item) => {
+        const file = item.file || {};
+        for (const size of SIZES) {
+          const bucket = file[size];
+          if (!bucket) continue;
+          for (const fmt of FORMATS) {
+            const media = bucket[fmt];
+            if (media && media.url) {
+              return {
+                url: media.url,
+                description: item.title || q,
+                width: media.width || 0,
+                height: media.height || 0,
+              };
+            }
+          }
+        }
+        return null;
       })
       .filter(Boolean);
 
