@@ -53,25 +53,23 @@ const LossBossPrivacy = () => {
           <h2>Memes</h2>
           <p>
             If you choose the <strong>Meme Master</strong> coach personality, the coach can send
-            memes into your chat. To find one, it writes a short search phrase — a few generic
-            words such as "tired" or "monday morning" — and the App sends <em>only that phrase</em>{" "}
-            through our relay server to{" "}
-            <a href="https://klipy.com" target="_blank" rel="noreferrer">KLIPY</a>, a third-party
-            meme and GIF library. Your chat messages, name, photos, and personal stats are never
-            sent to KLIPY. Because the search runs through our relay, your IP address is not shared
-            with KLIPY at this step, and our relay does not log or retain the phrase.
+            memes into your chat. Each meme is a classic template (for example "Success Kid") with
+            short caption lines written by the coach, and the App downloads the finished image
+            directly from{" "}
+            <a href="https://memegen.link" target="_blank" rel="noreferrer">memegen.link</a>, an
+            open-source meme-rendering service. That request contains the template name and the
+            caption text, and — as with loading any image from the internet — reveals your device's
+            IP address to memegen.link.
           </p>
           <p>
-            The App then downloads the meme image itself directly from KLIPY's servers. As with
-            loading any image from the internet, that request reveals your device's IP address and
-            which image was requested to KLIPY, subject to their{" "}
-            <a href="https://klipy.com/support/privacy-policy" target="_blank" rel="noreferrer">
-              privacy policy
-            </a>. Meme results are restricted to KLIPY's strictest content filter.
+            Caption text is composed by the coach and may reflect the topic you were discussing
+            (for example a food or an excuse), but the coach is instructed never to include your
+            name or personal details in captions, and your chat messages, name, photos, and
+            personal stats are never sent to memegen.link.
           </p>
           <p>
-            If you use any other coach personality, the App never contacts KLIPY. You can switch
-            personalities anytime in Settings → Coach personality.
+            If you use any other coach personality, the App never contacts memegen.link. You can
+            switch personalities anytime in Settings → Coach personality.
           </p>
         </section>
 
