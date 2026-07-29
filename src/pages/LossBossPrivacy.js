@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: July 22, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: July 29, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -46,6 +46,32 @@ const LossBossPrivacy = () => {
             </a>{" "}
             (API data is not used to train their models). Do not include information in chat that
             you do not want processed this way.
+          </p>
+        </section>
+
+        <section className="policy-section">
+          <h2>Memes</h2>
+          <p>
+            If you choose the <strong>Meme Master</strong> coach personality, the coach can send
+            memes into your chat. To find one, it writes a short search phrase — a few generic
+            words such as "tired" or "monday morning" — and the App sends <em>only that phrase</em>{" "}
+            through our relay server to{" "}
+            <a href="https://tenor.com" target="_blank" rel="noreferrer">Tenor</a>, a GIF and meme
+            library operated by Google. Your chat messages, name, photos, and personal stats are
+            never sent to Tenor. Because the search runs through our relay, your IP address is not
+            shared with Tenor at this step, and our relay does not log or retain the phrase.
+          </p>
+          <p>
+            The App then downloads the meme image itself directly from Tenor's servers. As with
+            loading any image from the internet, that request reveals your device's IP address and
+            which image was requested to Tenor and Google, subject to{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
+              Google's Privacy Policy
+            </a>. Meme results are restricted to Tenor's strictest content filter.
+          </p>
+          <p>
+            If you use any other coach personality, the App never contacts Tenor. You can switch
+            personalities anytime in Settings → Coach personality.
           </p>
         </section>
 

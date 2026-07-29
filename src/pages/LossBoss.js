@@ -19,7 +19,7 @@ const S = {
 };
 
 const FEATURES = [
-  ["🎭", "Pick your coach's personality", "Sunny cheers you on. Sarge holds the line. Savage roasts you off the couch (you opt in — it never body-shames). Doc explains the science."],
+  ["🎭", "Pick your coach's personality", "Sunny cheers you on. Sarge holds the line. Savage roasts you off the couch (you opt in — it never body-shames). Meme Master coaches in jokes and sends real memes."],
   ["🧠", "A coach that actually remembers", "Hate salmon? Work nights? Your coach learns your preferences and adapts the plan — and you can view or delete every memory in Settings."],
   ["📸", "Snap a photo, get the calories", "AI estimates calories and protein from a picture of your plate. Edit in one tap. No database spelunking."],
   ["📊", "Science-backed numbers", "Mifflin-St Jeor metabolism math, weekly adaptive recalibration from your real trend, protein targets that protect muscle — every claim cited to the actual study."],
