@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: July 29, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: August 3, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -54,18 +54,18 @@ const LossBossPrivacy = () => {
           <p>
             If you choose the <strong>Meme Master</strong> coach personality, the coach can send
             memes into your chat. Each meme is a classic template (for example "Success Kid") with
-            short caption lines written by the coach, and the App downloads the finished image
-            directly from{" "}
+            short caption lines written by the coach. The App downloads the <strong>blank</strong>{" "}
+            template image from{" "}
             <a href="https://memegen.link" target="_blank" rel="noreferrer">memegen.link</a>, an
-            open-source meme-rendering service. That request contains the template name and the
-            caption text, and — as with loading any image from the internet — reveals your device's
-            IP address to memegen.link.
+            open-source meme-rendering service, and draws the captions onto it on your device. That
+            request contains only the template name — never the caption text — and, as with loading
+            any image from the internet, reveals your device's IP address to memegen.link.
           </p>
           <p>
             Caption text is composed by the coach and may reflect the topic you were discussing
             (for example a food or an excuse), but the coach is instructed never to include your
-            name or personal details in captions, and your chat messages, name, photos, and
-            personal stats are never sent to memegen.link.
+            name or personal details in captions. Captions stay on your device, and your chat
+            messages, name, photos, and personal stats are never sent to memegen.link.
           </p>
           <p>
             If you use any other coach personality, the App never contacts memegen.link. You can
