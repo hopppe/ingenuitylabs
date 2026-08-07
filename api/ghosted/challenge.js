@@ -4,8 +4,9 @@
 //  - Browsers and link-preview crawlers (iMessage, WhatsApp, Twitter) get HTML
 //    whose OG tags carry the score, then a client redirect into the SPA
 //    challenge page with the long-form params the page already understands.
-// vercel.json rewrites /ghosted/c/:key here (the query-param form /ghosted/c
-// keeps going to the SPA directly).
+// vercel.json rewrites /ghosted/c/:key here as ?key=:key (the query-param form
+// /ghosted/c keeps going to the SPA directly). Fixed path on purpose: dynamic
+// [key].js api routes lose to the SPA catch-all rewrite in this project.
 const SITE = "https://www.ingenuitylabs.net";
 // Blobs are written with addRandomSuffix:false, so public URLs are deterministic.
 const BLOB_BASE = "https://to108uvrngcmvv9c.public.blob.vercel-storage.com";
@@ -58,13 +59,13 @@ module.exports = async (req, res) => {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${SITE}/ghosted/c/${key}">
-<meta property="og:image" content="${SITE}/api/ghosted/og/${key}">
+<meta property="og:image" content="${SITE}/api/ghosted/ogimage?key=${key}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
-<meta name="twitter:image" content="${SITE}/api/ghosted/og/${key}">
+<meta name="twitter:image" content="${SITE}/api/ghosted/ogimage?key=${key}">
 <style>body{background:#0a0118;color:#fff;font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}</style>
 </head>
 <body>

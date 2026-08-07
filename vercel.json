@@ -14,7 +14,7 @@
     },
     {
       "source": "/ghosted/c/:key",
-      "destination": "/api/ghosted/c/:key"
+      "destination": "/api/ghosted/challenge?key=:key"
     },
     {
       "source": "/:path*",

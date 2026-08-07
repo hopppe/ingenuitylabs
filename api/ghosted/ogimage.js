@@ -12,7 +12,7 @@ const BLOB_BASE = "https://to108uvrngcmvv9c.public.blob.vercel-storage.com";
 const el = (type, style, ...children) => ({ type, props: { style, children } });
 
 export default async function handler(req) {
-  const key = new URL(req.url).pathname.split("/").pop().replace(/\.png$/, "");
+  const key = new URL(req.url).searchParams.get("key") || "";
 
   let payload = null;
   if (/^[a-z2-9]{4,16}$/.test(key)) {
