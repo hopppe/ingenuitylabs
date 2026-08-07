@@ -2,12 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./Ghosted.css";
 import appIcon from "../assets/ghosted-icon.png";
 
-// Where friends without the app go. Swap for the real TestFlight public link
-// once the first build is uploaded (until then: join-the-beta email).
-const DOWNLOAD_URL = "mailto:ethan@ingenuitylabs.net?subject=Ghosted%20beta&body=I%20want%20in%20on%20the%20Ghosted%20beta!";
+// App Store product page (id from App Store Connect). The URL is deterministic
+// from the app id, so it goes live the moment review approves — 404s until then.
+const DOWNLOAD_URL = "https://apps.apple.com/app/id6793375942";
+
+const CHARACTER_COLORS = {
+  pip: "#ffffff",
+  mochi: "#ff9ad5",
+  volt: "#ffd84d",
+  minty: "#7dffcf",
+};
+
+const MEDALS = ["🥇", "🥈", "🥉"];
 
 const Ghosted = () => {
   const [challenge, setChallenge] = useState(null);
+  const [board, setBoard] = useState(null); // null = loading, [] = empty/unavailable
+
+  useEffect(() => {
+    fetch("/api/ghosted-leaderboard")
+      .then((r) => (r.ok ? r.json() : { scores: [] }))
+      .then((data) => setBoard(data.scores || []))
+      .catch(() => setBoard([]));
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -70,7 +87,7 @@ const Ghosted = () => {
               back, and someone's getting Ghosted.
             </p>
             <a className="gr-btn gr-btn-primary" href={DOWNLOAD_URL}>
-              Join the beta
+              Get it on the App Store
             </a>
 
             <div className="gr-features">
@@ -97,6 +114,31 @@ const Ghosted = () => {
             </div>
           </section>
         )}
+
+        <section className="gr-board">
+          <h2 className="gr-board-title">🏆 Global Leaderboard</h2>
+          <p className="gr-board-sub">the farthest hauntings on Earth</p>
+          {board === null ? (
+            <p className="gr-board-empty">Summoning ghosts…</p>
+          ) : board.length === 0 ? (
+            <p className="gr-board-empty">No ghosts on the board yet — be the first.</p>
+          ) : (
+            <ol className="gr-board-list">
+              {board.slice(0, 10).map((s, i) => (
+                <li key={s.id} className={`gr-board-row ${i < 3 ? "gr-board-top" : ""}`}>
+                  <span className="gr-board-rank">{MEDALS[i] || i + 1}</span>
+                  <span
+                    className="gr-board-name"
+                    style={{ color: CHARACTER_COLORS[s.character] || "#fff" }}
+                  >
+                    {s.name}
+                  </span>
+                  <span className="gr-board-meters">{s.meters}m</span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </section>
 
         <footer className="gr-footer">
           <a href="/ghosted-privacy">Privacy</a>

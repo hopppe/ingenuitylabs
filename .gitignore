@@ -26,3 +26,4 @@ yarn-error.log*
 # local tooling artifacts
 /.playwright-mcp
 .vercel
+.env*.local

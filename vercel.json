@@ -13,6 +13,10 @@
       "destination": "https://aitravelagent-blue.vercel.app/:path*"
     },
     {
+      "source": "/ghosted/c/:key",
+      "destination": "/api/ghosted/c/:key"
+    },
+    {
       "source": "/:path*",
       "destination": "/index.html"
     }
