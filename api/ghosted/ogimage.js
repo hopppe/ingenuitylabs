@@ -42,8 +42,9 @@ export default async function handler(req) {
         color: "#fff",
         fontSize: 32,
       },
-      // neon horizon stripe
+      // neon horizon stripe (satori requires explicit display on every div)
       el("div", {
+        display: "flex",
         position: "absolute",
         top: 392,
         left: 0,
