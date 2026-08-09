@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: August 3, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: August 9, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -46,6 +46,25 @@ const LossBossPrivacy = () => {
             </a>{" "}
             (API data is not used to train their models). Do not include information in chat that
             you do not want processed this way.
+          </p>
+          <p>
+            <strong>This sharing only happens with your explicit permission.</strong> The App asks
+            for your consent before any data is sent to OpenAI, and you can withdraw it at any time
+            in Settings → AI coaching. While it is off, no data is sent to OpenAI — which also
+            pauses coach replies, photo calorie estimates, and personalized reminders.
+          </p>
+        </section>
+
+        <section className="policy-section">
+          <h2>Voice Input (Dictation)</h2>
+          <p>
+            The chat has an optional microphone button that turns your speech into text using{" "}
+            <strong>Apple's speech recognition</strong> (the iOS Speech framework). Recognition
+            happens on your device when iOS supports your language locally; otherwise the audio is
+            processed by Apple, subject to Apple's privacy terms. We never receive or store your
+            audio, and nothing is recorded unless you tap the microphone. The transcribed text
+            simply appears in the message box — it is only sent to OpenAI if you then send it, like
+            any typed message.
           </p>
         </section>
 
