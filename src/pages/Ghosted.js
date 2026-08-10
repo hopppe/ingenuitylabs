@@ -125,7 +125,7 @@ const Ghosted = () => {
           ) : (
             <ol className="gr-board-list">
               {board.slice(0, 10).map((s, i) => (
-                <li key={s.id} className={`gr-board-row ${i < 3 ? "gr-board-top" : ""}`}>
+                <li key={`${s.id}-${s.meters}`} className={`gr-board-row ${i < 3 ? "gr-board-top" : ""}`}>
                   <span className="gr-board-rank">{MEDALS[i] || i + 1}</span>
                   <span
                     className="gr-board-name"

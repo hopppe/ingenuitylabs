@@ -21,6 +21,7 @@ const DAILY_ROOT = "ghosted/daily-"; // full path: ghosted/daily-<utcDay>-<ms>.j
 const LEGACY_PATH = "ghosted/leaderboard.json"; // pre-versioning boards
 const KEEP_VERSIONS = 3;
 const MAX_SCORES = 100;
+const MAX_PER_PLAYER = 5; // a player's top runs each get a row
 const MAX_METERS = 50000; // sanity cap — beyond any legitimate run
 const CHARACTERS = new Set(["pip", "mochi", "volt", "minty"]);
 
@@ -91,20 +92,27 @@ async function prune(day) {
   }
 }
 
+// Each POST is one RUN. A player keeps up to MAX_PER_PLAYER rows per board
+// (their top runs); a duplicate (same id + same meters) is treated as a
+// rename/refresh, not a new run — flush retries resubmit the same value.
 function upsert(board, entry) {
-  const existing = board.scores.find((s) => s.id === entry.id);
-  if (existing && existing.meters >= entry.meters) {
-    // Keep their high score, but let them rename / switch character.
-    existing.name = entry.name;
-    existing.character = entry.character;
-  } else {
-    board.scores = board.scores.filter((s) => s.id !== entry.id);
+  // keep identity fresh on every row this player already owns
+  for (const s of board.scores) {
+    if (s.id === entry.id) { s.name = entry.name; s.character = entry.character; }
+  }
+  const dup = board.scores.some((s) => s.id === entry.id && s.meters === entry.meters);
+  if (!dup) {
     board.scores.push(entry);
+    const mine = board.scores
+      .filter((s) => s.id === entry.id)
+      .sort((a, b) => b.meters - a.meters || a.when - b.when);
+    const keep = new Set(mine.slice(0, MAX_PER_PLAYER));
+    board.scores = board.scores.filter((s) => s.id !== entry.id || keep.has(s));
   }
   board.scores.sort((a, b) => b.meters - a.meters || a.when - b.when);
   board.scores = board.scores.slice(0, MAX_SCORES);
   board.updated = entry.when;
-  return board.scores.findIndex((s) => s.id === entry.id) + 1 || null;
+  return board.scores.findIndex((s) => s.id === entry.id && s.meters === entry.meters) + 1 || null;
 }
 
 function cleanName(raw) {
