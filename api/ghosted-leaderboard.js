@@ -1,26 +1,32 @@
-// Ghosted global leaderboard — one JSON blob in Vercel Blob storage.
+// Ghosted global + daily leaderboards — JSON blobs in Vercel Blob storage.
 //
-// GET  -> { scores: [{ id, name, meters, character, when }], updated }
-// POST { id, name, meters, character } -> upserts best-per-player, returns rank.
+// GET  -> { scores: [...], daily: [...], day, updated }
+// POST { id, name, meters, character, todayMeters? }
+//      `meters` upserts the all-time board; `todayMeters` (if present) upserts
+//      today's board. Daily board resets at midnight UTC (a new UTC day simply
+//      reads as empty).
 //
-// Read-modify-write on a single blob: two simultaneous submits can drop one,
-// which is fine at this scale — the app resubmits its best on every refresh,
-// so a lost write heals itself the next time that player opens the board.
+// Read-modify-write on blobs: two simultaneous submits can drop one, which is
+// fine at this scale — the app resubmits its best on every refresh, so a lost
+// write heals itself the next time that player opens the board.
 
 const { put, list, del } = require("@vercel/blob");
 
-// Each write goes to a NEW pathname (ghosted/board-<ms>.json) and readers take
-// the highest stamp. The blob CDN ignores query strings and caches by path, so
-// overwriting one fixed path serves stale content for up to a minute — fresh
-// paths are the only way to get read-after-write. Old versions are pruned.
+// Each write goes to a NEW pathname and readers take the highest stamp. The
+// blob CDN ignores query strings and caches by path, so overwriting one fixed
+// path serves stale content for up to a minute — fresh paths are the only way
+// to get read-after-write. Old versions are pruned.
 const BOARD_PREFIX = "ghosted/board-";
+const DAILY_ROOT = "ghosted/daily-"; // full path: ghosted/daily-<utcDay>-<ms>.json
 const LEGACY_PATH = "ghosted/leaderboard.json"; // pre-versioning boards
 const KEEP_VERSIONS = 3;
 const MAX_SCORES = 100;
 const MAX_METERS = 50000; // sanity cap — beyond any legitimate run
 const CHARACTERS = new Set(["pip", "mochi", "volt", "minty"]);
 
-const stampOf = (pathname) => Number((pathname.match(/board-(\d+)\.json$/) || [])[1] || 0);
+const utcDay = () => Math.floor(Date.now() / 86400000);
+const dailyPrefix = (day) => `${DAILY_ROOT}${day}-`;
+const stampOf = (pathname) => Number((pathname.match(/-(\d+)\.json$/) || [])[1] || 0);
 
 async function fetchBoard(url) {
   const res = await fetch(url, { cache: "no-store" });
@@ -29,9 +35,13 @@ async function fetchBoard(url) {
   return data && Array.isArray(data.scores) ? data : null;
 }
 
+async function newestAt(prefix) {
+  const { blobs } = await list({ prefix, limit: 100 });
+  return blobs.sort((a, b) => stampOf(b.pathname) - stampOf(a.pathname))[0] || null;
+}
+
 async function readBoard() {
-  const { blobs } = await list({ prefix: BOARD_PREFIX, limit: 100 });
-  const newest = blobs.sort((a, b) => stampOf(b.pathname) - stampOf(a.pathname))[0];
+  const newest = await newestAt(BOARD_PREFIX);
   if (newest) return (await fetchBoard(newest.url)) || { scores: [], updated: 0 };
 
   // migration: fall back to the old fixed-path blob
@@ -43,22 +53,58 @@ async function readBoard() {
   return { scores: [], updated: 0 };
 }
 
-async function writeBoard(board) {
-  await put(`${BOARD_PREFIX}${board.updated}.json`, JSON.stringify(board), {
+async function readDaily(day) {
+  const newest = await newestAt(dailyPrefix(day));
+  if (newest) return (await fetchBoard(newest.url)) || { scores: [], updated: 0 };
+  return { scores: [], updated: 0 }; // new UTC day = fresh board
+}
+
+async function writeAt(prefix, board) {
+  await put(`${prefix}${board.updated}.json`, JSON.stringify(board), {
     access: "public",
     addRandomSuffix: false,
     contentType: "application/json",
   });
-  // prune old versions (best-effort; a failure here never fails the submit)
+}
+
+// prune old versions — and for daily, every previous day (best-effort;
+// a failure here never fails the submit)
+async function prune(day) {
   try {
-    const { blobs } = await list({ prefix: BOARD_PREFIX, limit: 100 });
-    const stale = blobs
+    const [main, daily] = await Promise.all([
+      list({ prefix: BOARD_PREFIX, limit: 100 }),
+      list({ prefix: DAILY_ROOT, limit: 500 }),
+    ]);
+    const staleMain = main.blobs
       .sort((a, b) => stampOf(b.pathname) - stampOf(a.pathname))
       .slice(KEEP_VERSIONS);
+    const todayPrefix = dailyPrefix(day);
+    const oldDays = daily.blobs.filter((b) => !b.pathname.startsWith(todayPrefix));
+    const staleToday = daily.blobs
+      .filter((b) => b.pathname.startsWith(todayPrefix))
+      .sort((a, b) => stampOf(b.pathname) - stampOf(a.pathname))
+      .slice(KEEP_VERSIONS);
+    const stale = [...staleMain, ...oldDays, ...staleToday];
     if (stale.length) await del(stale.map((b) => b.url));
   } catch (err) {
     console.error("board prune failed:", err);
   }
+}
+
+function upsert(board, entry) {
+  const existing = board.scores.find((s) => s.id === entry.id);
+  if (existing && existing.meters >= entry.meters) {
+    // Keep their high score, but let them rename / switch character.
+    existing.name = entry.name;
+    existing.character = entry.character;
+  } else {
+    board.scores = board.scores.filter((s) => s.id !== entry.id);
+    board.scores.push(entry);
+  }
+  board.scores.sort((a, b) => b.meters - a.meters || a.when - b.when);
+  board.scores = board.scores.slice(0, MAX_SCORES);
+  board.updated = entry.when;
+  return board.scores.findIndex((s) => s.id === entry.id) + 1 || null;
 }
 
 function cleanName(raw) {
@@ -111,50 +157,55 @@ module.exports = async (req, res) => {
   if (req.method === "OPTIONS") return res.status(204).end();
 
   try {
+    const day = utcDay();
+
     if (req.method === "GET") {
-      const board = await readBoard();
+      const [board, daily] = await Promise.all([readBoard(), readDaily(day)]);
       res.setHeader("Cache-Control", "s-maxage=30, stale-while-revalidate=300");
-      return res.status(200).json(board);
+      return res.status(200).json({
+        scores: board.scores,
+        daily: daily.scores,
+        day,
+        updated: Math.max(board.updated || 0, daily.updated || 0),
+      });
     }
 
     if (req.method === "POST") {
-      const { id, name: rawName, meters, character } = req.body || {};
+      const { id, name: rawName, meters, character, todayMeters } = req.body || {};
       let name = cleanName(rawName);
+      const validMeters = (m) => Number.isInteger(m) && m >= 1 && m <= MAX_METERS;
       if (
         typeof id !== "string" || !/^[A-Za-z0-9-]{8,64}$/.test(id) ||
-        !name ||
-        !Number.isInteger(meters) || meters < 1 || meters > MAX_METERS
+        !name || !validMeters(meters) ||
+        (todayMeters !== undefined && !validMeters(todayMeters))
       ) {
         return res.status(400).json({ error: "Invalid score submission" });
       }
       name = displayName(name, id);
 
-      const board = await readBoard();
-      const entry = {
-        id,
-        name,
-        meters,
-        character: CHARACTERS.has(character) ? character : "pip",
-        when: Date.now(),
-      };
+      const character_ = CHARACTERS.has(character) ? character : "pip";
+      const when = Date.now();
+      const [board, daily] = await Promise.all([readBoard(), readDaily(day)]);
 
-      const existing = board.scores.find((s) => s.id === id);
-      if (existing && existing.meters >= meters) {
-        // Keep their high score, but let them rename / switch character.
-        existing.name = name;
-        existing.character = entry.character;
-      } else {
-        board.scores = board.scores.filter((s) => s.id !== id);
-        board.scores.push(entry);
+      const rank = upsert(board, { id, name, meters, character: character_, when });
+      let dailyRank = null;
+      const writes = [writeAt(BOARD_PREFIX, board)];
+      if (todayMeters !== undefined) {
+        dailyRank = upsert(daily, { id, name, meters: todayMeters, character: character_, when });
+        writes.push(writeAt(dailyPrefix(day), daily));
       }
+      await Promise.all(writes);
+      await prune(day);
 
-      board.scores.sort((a, b) => b.meters - a.meters || a.when - b.when);
-      board.scores = board.scores.slice(0, MAX_SCORES);
-      board.updated = Date.now();
-      await writeBoard(board);
-
-      const rank = board.scores.findIndex((s) => s.id === id) + 1;
-      return res.status(200).json({ ok: true, rank: rank || null, updated: board.updated, scores: board.scores });
+      return res.status(200).json({
+        ok: true,
+        rank,
+        dailyRank,
+        day,
+        updated: Math.max(board.updated || 0, daily.updated || 0),
+        scores: board.scores,
+        daily: daily.scores,
+      });
     }
 
     return res.status(405).json({ error: "Method not allowed" });
