@@ -65,15 +65,16 @@ const Ghosted = () => {
               </div>
               <p className="gr-score-label">the distance to beat</p>
 
-              <a className="gr-btn gr-btn-primary" href={challenge.appLink}>
-                Race their ghost
+              <a className="gr-btn gr-btn-primary" href={DOWNLOAD_URL}>
+                Get Ghosted — free
               </a>
-              <a className="gr-btn gr-btn-ghost" href={DOWNLOAD_URL}>
-                Don't have Ghosted? Get it →
+              <a className="gr-btn gr-btn-ghost" href={challenge.appLink}>
+                Already have it? Open the challenge →
               </a>
               <p className="gr-fineprint">
-                Tapping “Race their ghost” opens the game if it's installed. Their exact run is
-                baked into this link — you'll race their ghost in real time.
+                If Ghosted is installed, this link opens the race directly — so if you're seeing
+                this page, you probably need the app. Their exact run is baked into the link:
+                install, tap it again, and you'll race their ghost in real time.
               </p>
             </div>
           </section>
