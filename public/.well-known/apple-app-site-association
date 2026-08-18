@@ -4,7 +4,12 @@
     "details": [
       {
         "appID": "AJ4TDM8U35.com.ingenuitylabs.ghosted",
-        "paths": [ "/ghosted/c", "/ghosted/c/*" ]
+        "paths": [
+          "/ghosted/c",
+          "/ghosted/c/*",
+          "/ghosted/g",
+          "/ghosted/g/*"
+        ]
       }
     ]
   }

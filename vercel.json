@@ -3,7 +3,10 @@
     {
       "source": "/.well-known/apple-app-site-association",
       "headers": [
-        { "key": "Content-Type", "value": "application/json" }
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
       ]
     }
   ],
@@ -15,6 +18,10 @@
     {
       "source": "/ghosted/c/:key",
       "destination": "/api/ghosted/challenge?key=:key"
+    },
+    {
+      "source": "/ghosted/g/:key",
+      "destination": "/api/ghosted/crewinvite?key=:key"
     },
     {
       "source": "/:path*",
