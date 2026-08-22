@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: August 9, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: August 22, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -28,7 +28,9 @@ const LossBossPrivacy = () => {
             weigh-ins, food logs, workouts, chat history, and everything the coach "remembers" about
             you are stored only on your device. We do not operate a database of user data, and we
             cannot see it. Deleting the App (or using Settings → Reset all data) permanently deletes
-            this data.
+            this data. The only time any of it leaves your phone is when it is sent to OpenAI to
+            generate a coaching response, as described under AI Processing below — and even then we
+            retain no copy of it ourselves.
           </p>
         </section>
 
@@ -37,8 +39,9 @@ const LossBossPrivacy = () => {
           <p>
             To generate coaching replies, meal suggestions, and photo-based calorie estimates, the
             App sends the relevant conversation context — which may include your first name, goals,
-            recent stats, messages, and meal photos you choose to submit — through our relay server
-            to OpenAI, our AI provider, for processing. Our relay is stateless: it does not log,
+            recent stats, messages, your daily step count read from Apple Health, and meal photos
+            you choose to submit — through our relay server to OpenAI, our AI provider, for
+            processing. Our relay is stateless: it does not log,
             store, or retain your messages or photos. OpenAI processes this data to generate the
             response, subject to{" "}
             <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noreferrer">
@@ -96,9 +99,14 @@ const LossBossPrivacy = () => {
           <h2>Apple Health</h2>
           <p>
             With your permission, the App reads your step count from Apple Health and can save your
-            weigh-ins to Apple Health. Health data is used only on your device for the features
-            described and is never sent to us. You can revoke access anytime in iOS Settings →
-            Health → Data Access.
+            weigh-ins to Apple Health. Your weigh-ins are written to Apple Health on your device and
+            are never sent to us. Your step count is different: so that your coach can take your
+            activity into account, your daily step total — for today and for past days the coach
+            reviews when you ask about them — is included in the context sent to OpenAI as described
+            under AI Processing above. This happens only after you grant AI consent in the App, and
+            it stops as soon as you turn that consent off in Settings → AI coaching. We do not store
+            your Health data on our servers, and it is never used for advertising or sold. You can
+            revoke Health access anytime in iOS Settings → Health → Data Access.
           </p>
         </section>
 
