@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: August 22, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: August 25, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -35,6 +35,43 @@ const LossBossPrivacy = () => {
         </section>
 
         <section className="policy-section">
+          <h2>What We Collect and How</h2>
+          <p>
+            Every piece of data in LossBoss comes from you directly. Nothing is gathered in the
+            background, and there are no third-party analytics, advertising, or tracking SDKs in
+            the App.
+          </p>
+          <ul>
+            <li>
+              <strong>Profile details</strong> — first name, age, sex, height, starting and goal
+              weight, activity level, and preferences. Collected because you type them into the
+              setup flow.
+            </li>
+            <li>
+              <strong>Chat messages</strong> — collected when you write to your coach.
+            </li>
+            <li>
+              <strong>Logged activity</strong> — meals, weigh-ins, water, and workouts. Collected
+              when you record them in the App.
+            </li>
+            <li>
+              <strong>Meal photos</strong> — collected only when you choose to take or attach a
+              photo for a calorie estimate.
+            </li>
+            <li>
+              <strong>Apple Health step count</strong> — read from Apple Health, only after you
+              grant Health permission in iOS.
+            </li>
+          </ul>
+          <p>
+            All of it is used for exactly one purpose: producing your coaching — chat replies,
+            calorie and macro estimates, meal plans, weekly recalibration, and reminders written in
+            your coach's voice. We do not use it for advertising, we do not sell it, we do not share
+            it with data brokers, and we do not profile you for anyone else's benefit.
+          </p>
+        </section>
+
+        <section className="policy-section">
           <h2>AI Processing</h2>
           <p>
             To generate coaching replies, meal suggestions, and photo-based calorie estimates, the
@@ -49,6 +86,16 @@ const LossBossPrivacy = () => {
             </a>{" "}
             (API data is not used to train their models). Do not include information in chat that
             you do not want processed this way.
+          </p>
+          <p>
+            <strong>Third-party protection.</strong> OpenAI is the only third party that receives
+            your personal data, and it receives it solely as our data processor, acting on our
+            instructions. Under OpenAI's API terms and Data Processing Addendum it is contractually
+            required to provide the same or equivalent protection for that data as this policy
+            commits us to: it may not use it to train its models, may not sell or disclose it, must
+            keep it secure, and deletes it within 30 days (retaining it briefly only to monitor for
+            abuse). We transmit it only after you have given explicit in-app consent, and you can
+            withdraw that consent at any time, after which nothing further is sent.
           </p>
           <p>
             <strong>This sharing only happens with your explicit permission.</strong> The App asks
