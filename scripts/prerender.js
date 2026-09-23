@@ -23,6 +23,7 @@ const MIME = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".avif": "image/avif",
+  ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
   ".txt": "text/plain",
@@ -75,6 +76,34 @@ function routesFromSitemap() {
   return [...new Set([...routes, ...EXTRA_ROUTES])];
 }
 
+// Runs in the page. React 19 hoists a page's <title>/<meta>/<link> into <head>
+// but leaves public/index.html's site-wide defaults in place, so a page with
+// <Seo> would ship two descriptions, two og:titles, etc. When React rendered a
+// tag with the same key, drop the static default and keep React's. Pages that
+// don't override a tag keep the default untouched.
+function dedupeHeadTags() {
+  const isReactOwned = (el) => Object.keys(el).some((k) => k.startsWith("__react"));
+  const keyOf = (el) => {
+    const tag = el.tagName.toLowerCase();
+    if (tag === "title") return "title";
+    if (tag === "link" && el.rel === "canonical") return "link:canonical";
+    if (tag === "meta") {
+      const name = el.getAttribute("name") || el.getAttribute("property");
+      return name ? `meta:${name}` : null;
+    }
+    return null;
+  };
+  const groups = new Map();
+  document.head.querySelectorAll("title, meta, link[rel=canonical]").forEach((el) => {
+    const key = keyOf(el);
+    if (key) groups.set(key, [...(groups.get(key) || []), el]);
+  });
+  groups.forEach((els) => {
+    if (els.length < 2 || !els.some(isReactOwned)) return;
+    els.filter((el) => !isReactOwned(el)).forEach((el) => el.remove());
+  });
+}
+
 async function launchChromium(playwright) {
   try {
     return await playwright.chromium.launch();
@@ -99,6 +128,7 @@ async function main() {
       timeout: 30000,
     });
     await page.waitForTimeout(400);
+    await page.evaluate(dedupeHeadTags);
     const html = await page.content();
     const outDir =
       route === "/" ? BUILD_DIR : path.join(BUILD_DIR, route.replace(/^\//, ""));
