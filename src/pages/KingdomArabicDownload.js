@@ -33,8 +33,8 @@ const KingdomArabicDownload = () => {
       justifyContent: "center",
       alignItems: "center",
       height: "100vh",
-      background: "linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%)",
-      color: "#f1c40f",
+      background: "linear-gradient(160deg, #2a1248 0%, #150a26 70%)",
+      color: "#e8b64c",
       fontSize: "1.2rem",
       fontFamily: "system-ui, -apple-system, sans-serif"
     }}>
