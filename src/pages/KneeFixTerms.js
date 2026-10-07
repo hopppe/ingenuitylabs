@@ -7,7 +7,7 @@ const KneeFixTerms = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Terms of Use for KneeFix</h1>
-          <p className="last-updated"><strong>Last updated: July 21, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: October 7, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -32,6 +32,7 @@ const KneeFixTerms = () => {
             <li>Progress tracking, streaks, and a session calendar</li>
             <li>Optional local daily reminders</li>
             <li>Ongoing maintenance sessions after a program ends</li>
+            <li>An optional, paid AI coach (KneeFix Coach) that answers questions and proposes changes to your plan</li>
           </ul>
         </section>
 
@@ -58,7 +59,21 @@ const KneeFixTerms = () => {
         <section className="policy-section">
           <h2>Price</h2>
           <p>
-            KneeFix is currently offered free of charge. If paid features are introduced in the future, they will be clearly presented in the App and processed through Apple's App Store, and these Terms will be updated accordingly.
+            KneeFix is free to download and use. The optional KneeFix Coach is offered as an
+            auto-renewing subscription for $4.99 per month or $29.99 per year (prices may vary by
+            region and are shown in the App before purchase), billed through your Apple App Store
+            account.
+          </p>
+          <ul>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase</li>
+            <li>Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period</li>
+            <li>Your account is charged for renewal within 24 hours before the end of the current period</li>
+            <li>Manage or cancel in iOS Settings → Apple ID → Subscriptions</li>
+            <li>Prices may change with notice; refunds are handled by Apple</li>
+          </ul>
+          <p>
+            The Coach is an AI. Its replies and suggested plan changes are not medical advice and
+            may be inaccurate; see Not Medical Advice above.
           </p>
         </section>
 
