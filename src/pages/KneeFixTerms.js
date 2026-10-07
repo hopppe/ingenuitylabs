@@ -60,7 +60,7 @@ const KneeFixTerms = () => {
           <h2>Price</h2>
           <p>
             KneeFix is free to download and use. The optional KneeFix Coach is offered as an
-            auto-renewing subscription for $4.99 per month or $29.99 per year (prices may vary by
+            auto-renewing subscription for $4.99 per month (prices may vary by
             region and are shown in the App before purchase), billed through your Apple App Store
             account.
           </p>
