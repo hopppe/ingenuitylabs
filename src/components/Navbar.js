@@ -32,17 +32,17 @@ function Navbar() {
       <Link to="/" className="navbar-logo">
         <svg
           className="logo-mark"
-          viewBox="0 0 48 48"
+          viewBox="0 0 660 660"
           width="34"
           height="34"
           role="img"
           aria-hidden="true"
           focusable="false"
         >
-          <rect className="logo-tile" x="0" y="0" width="48" height="48" rx="10" />
-          <rect className="logo-glyph" x="13" y="13" width="5" height="22" />
-          <rect className="logo-glyph" x="24" y="13" width="5" height="22" />
-          <rect className="logo-glyph" x="24" y="30" width="11" height="5" />
+          <rect className="logo-tile" x="0" y="0" width="660" height="660" rx="137" />
+          <path className="logo-glyph" d="M190,103 Q196,149 243,156 Q196,163 190,210 Q184,163 137,156 Q184,149 190,103 Z" />
+          <path className="logo-glyph" d="M150,225 H212 Q240,225 240,253 V425 C240,505 280,548 345,553 H262 C195,553 150,512 150,450 Z" />
+          <path className="logo-glyph" d="M275,150 H325 Q370,150 370,195 V470 H475 Q520,470 520,515 V553 H385 C318,553 275,505 275,435 Z" />
         </svg>
         <span className="logo-text">Ingenuity Labs</span>
       </Link>

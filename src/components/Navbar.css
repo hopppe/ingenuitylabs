@@ -22,26 +22,26 @@
   gap: 0.7rem;
 }
 
-/* Logo mark: cream tile + ink glyphs on dark nav, inverted on light nav */
+/* Logo mark: white tile + black iL on dark nav, inverted on light nav */
 .logo-mark {
   display: block;
   flex-shrink: 0;
 }
 
 .logo-mark .logo-tile {
-  fill: #f2f1ec;
+  fill: #ffffff;
 }
 
 .logo-mark .logo-glyph {
-  fill: #16150f;
+  fill: #000000;
 }
 
 .navbar-light .logo-mark .logo-tile {
-  fill: #16150f;
+  fill: #000000;
 }
 
 .navbar-light .logo-mark .logo-glyph {
-  fill: #f2f1ec;
+  fill: #ffffff;
 }
 
 .logo-image {
