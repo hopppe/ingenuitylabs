@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: August 25, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: October 31, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -26,20 +26,21 @@ const LossBossPrivacy = () => {
             <strong>LossBoss stores your personal data locally on your phone.</strong> The App has
             no accounts and no login. Your profile (age, height, weight, goals, food preferences),
             weigh-ins, food logs, workouts, chat history, and everything the coach "remembers" about
-            you are stored only on your device. We do not operate a database of user data, and we
-            cannot see it. Deleting the App (or using Settings → Reset all data) permanently deletes
-            this data. The only time any of it leaves your phone is when it is sent to OpenAI to
-            generate a coaching response, as described under AI Processing below — and even then we
-            retain no copy of it ourselves.
+            you are stored only on your device. We cannot see any of it. Deleting the App (or using
+            Settings → Reset all data) permanently deletes this data. The only time any of it leaves
+            your phone is when it is sent to OpenAI to generate a coaching response, as described
+            under AI Processing below — and even then we retain no copy of it ourselves. Separately,
+            the App sends us anonymous usage statistics and crash reports, which never contain this
+            personal data; see Anonymous Usage Analytics below.
           </p>
         </section>
 
         <section className="policy-section">
           <h2>What We Collect and How</h2>
           <p>
-            Every piece of data in LossBoss comes from you directly. Nothing is gathered in the
-            background, and there are no third-party analytics, advertising, or tracking SDKs in
-            the App.
+            Your personal data in LossBoss comes from you directly. Apart from the anonymous usage
+            statistics and crash reports described below, nothing is gathered in the background, and
+            there are no third-party analytics, advertising, or tracking SDKs in the App.
           </p>
           <ul>
             <li>
@@ -106,6 +107,34 @@ const LossBossPrivacy = () => {
         </section>
 
         <section className="policy-section">
+          <h2>Anonymous Usage Analytics and Crash Reports</h2>
+          <p>
+            To understand which features help and to fix bugs, the App sends a small number of
+            anonymous usage events to our own server (hosted by Vercel, with the database hosted by
+            Neon). These record <em>that</em> something happened, not what you entered — for example:
+            the App was opened, a setup step was completed, the coach personality and weekly pace you
+            picked, notifications were allowed or declined, the subscription screen was shown, a
+            purchase was started or completed, or a meal, weigh-in, workout, or chat message was
+            logged (only the fact that it was logged and how — never the food, calories, weight, or
+            message text). Each event also includes the App version, iOS version, device type (iPhone
+            or iPad), and language setting.
+          </p>
+          <p>
+            Events are grouped by a random identifier the App creates on your device. It is not your
+            Apple ID, your name, or Apple's advertising identifier, and it is not linked to your
+            identity. If the App crashes or freezes, it also sends a technical crash report from
+            Apple's MetricKit (the type of error and the part of the App's code involved), which
+            contains no personal data.
+          </p>
+          <p>
+            We never send your name, profile details, weights, food logs, chat messages, photos,
+            coach memory, or Apple Health data to our analytics server. We do not use this data for
+            advertising, we do not sell or share it, and we do not track you across other companies'
+            apps or websites. We keep it only as long as it is useful for improving the App.
+          </p>
+        </section>
+
+        <section className="policy-section">
           <h2>Voice Input (Dictation)</h2>
           <p>
             The chat has an optional microphone button that turns your speech into text using{" "}
@@ -161,7 +190,12 @@ const LossBossPrivacy = () => {
           <h2>Subscriptions</h2>
           <p>
             Subscriptions are processed by Apple through your App Store account. We do not receive
-            your payment details.
+            your payment details. Apple sends our server notifications about subscription events
+            (for example, a free trial starting, a renewal, a cancellation, or a refund), including
+            the product, price, currency, and App Store country. When you subscribe, the App passes
+            Apple the same random identifier described under Anonymous Usage Analytics so these
+            notifications can be matched to that anonymous usage data. We use this only to
+            understand how the App performs and to keep your subscription status correct.
           </p>
         </section>
 
