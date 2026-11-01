@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
   }
 
   if (response_format) payload.response_format = response_format;
-  if (Array.isArray(tools) && tools.length <= 16) payload.tools = tools;
+  if (Array.isArray(tools) && tools.length <= 32) payload.tools = tools;
   if (tool_choice) payload.tool_choice = tool_choice;
 
   try {
