@@ -14,7 +14,7 @@ const { neon } = require("@neondatabase/serverless");
 const EVENT_NAMES = new Set([
   "first_open", "app_open", "day_active",
   "onboarding_start", "onboarding_step", "onboarding_switch_flow", "onboarding_complete",
-  "consent", "heard_from", "creator_code_entered", "perm",
+  "consent", "heard_from", "creator_code_entered", "creator_matched", "perm",
   "paywall_view", "paywall_close", "offer_view", "offer_decline",
   "purchase_start", "purchase_result", "restore",
   "meal_logged", "chat_sent", "weigh_in", "workout_logged", "notification_opened",

@@ -7,7 +7,7 @@ const LossBossPrivacy = () => {
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Privacy Policy for LossBoss</h1>
-          <p className="last-updated"><strong>Last updated: October 31, 2026</strong></p>
+          <p className="last-updated"><strong>Last updated: November 7, 2026</strong></p>
         </div>
 
         <section className="policy-section">
@@ -39,7 +39,8 @@ const LossBossPrivacy = () => {
           <h2>What We Collect and How</h2>
           <p>
             Your personal data in LossBoss comes from you directly. Apart from the anonymous usage
-            statistics and crash reports described below, nothing is gathered in the background, and
+            statistics, crash reports, and creator link matching described below, nothing is
+            gathered in the background, and
             there are no third-party analytics, advertising, or tracking SDKs in the App.
           </p>
           <ul>
@@ -135,6 +136,35 @@ const LossBossPrivacy = () => {
         </section>
 
         <section className="policy-section">
+          <h2>Creator Links</h2>
+          <p>
+            Some people find LossBoss through a creator's link, such as lossboss.app/c/name. When
+            you tap one, our server records the creator, the time, your device type, iOS version and
+            device model if your browser reports them, which app's browser you used, your country,
+            and a keyed one-way hash of your IP address. We do not store the IP address itself on
+            this record.
+          </p>
+          <p>
+            When you first open the App, it sends our server the random identifier described under
+            Anonymous Usage Analytics, along with your iOS version, device model, and App version.
+            Our server compares the hash of your IP address and these details with link taps from
+            the previous hour. If they match, or if you opened the App directly from a creator's
+            link, we record that the creator referred you and the App can show you that creator's
+            offer. If there is no match, we record the install as not referred. We do this for every
+            new install.
+          </p>
+          <p>
+            We use this only to credit creators and show their offers. IP hashes are erased within
+            two days. We keep the record that an install was referred, and the matching subscription
+            events, so we can calculate what a creator earned. Creators see totals only, such as
+            taps, installs, trials, paid subscribers, earnings, and top countries. They never see
+            who you are or anything from your profile, logs, or chats. We do not use Apple's
+            advertising identifier, we do not combine this with data from other companies, and we
+            do not use it to track you across other companies' apps or websites.
+          </p>
+        </section>
+
+        <section className="policy-section">
           <h2>Voice Input (Dictation)</h2>
           <p>
             The chat has an optional microphone button that turns your speech into text using{" "}
@@ -195,7 +225,20 @@ const LossBossPrivacy = () => {
             the product, price, currency, and App Store country. When you subscribe, the App passes
             Apple the same random identifier described under Anonymous Usage Analytics so these
             notifications can be matched to that anonymous usage data. We use this only to
-            understand how the App performs and to keep your subscription status correct.
+            understand how the App performs, to keep your subscription status correct, and, if a
+            creator referred you, to calculate that creator's earnings.
+          </p>
+        </section>
+
+        <section className="policy-section">
+          <h2>Creator Program Members</h2>
+          <p>
+            If you apply to or join our creator program, we collect what you give us: your name,
+            email address, social handles, audience details, phone number, country, and payout
+            details. We use this to review your application, run your account, and pay you. We send
+            program emails through Resend and store this data with Neon and Vercel. When you accept
+            the creator agreement, we keep your IP address and browser details as a record of that
+            acceptance. IP details on applications are erased within two days.
           </p>
         </section>
 
