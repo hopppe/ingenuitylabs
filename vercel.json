@@ -27,5 +27,22 @@
       "source": "/:path*",
       "destination": "/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/lossboss",
+      "destination": "https://lossboss.app/",
+      "permanent": true
+    },
+    {
+      "source": "/lossboss-privacy",
+      "destination": "https://lossboss.app/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/lossboss-terms",
+      "destination": "https://lossboss.app/terms",
+      "permanent": true
+    }
   ]
 }
