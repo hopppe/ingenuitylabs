@@ -12,6 +12,14 @@
   ],
   "rewrites": [
     {
+      "source": "/api/lossboss-events",
+      "destination": "https://lossboss.app/api/events"
+    },
+    {
+      "source": "/api/lossboss-assn",
+      "destination": "https://lossboss.app/api/app-store-notifications"
+    },
+    {
       "source": "/aitravelagent/:path*",
       "destination": "https://aitravelagent-blue.vercel.app/:path*"
     },
