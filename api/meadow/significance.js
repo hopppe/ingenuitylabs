@@ -45988,9 +45988,10 @@ function date4(params) {
 var MAX_PASSAGE_CHARS = 6e3;
 var MAX_HISTORY_TURNS = 8;
 var MAX_QUESTION_CHARS = 1e3;
+var MAX_CONTEXT_CHARS = 12e3;
 var MAX_NOTES = 40;
 var MAX_NOTE_CHARS = 1500;
-var kinds = ["explain", "mainPoint", "summarize", "ask", "wordStudy", "apply"];
+var kinds = ["explain", "mainPoint", "summarize", "ask", "wordStudy", "apply", "references"];
 var InsightRequestSchema = external_exports.object({
   id: external_exports.string().max(64).optional(),
   kind: external_exports.enum(kinds),
@@ -46008,7 +46009,13 @@ var InsightRequestSchema = external_exports.object({
       role: external_exports.enum(["user", "assistant"]),
       text: external_exports.string().max(4e3)
     })
-  ).max(MAX_HISTORY_TURNS).default([])
+  ).max(MAX_HISTORY_TURNS).default([]),
+  depth: external_exports.enum(["brief", "deep"]).default("brief"),
+  context: external_exports.object({
+    reference: external_exports.string().min(1).max(120),
+    translation: external_exports.string().min(1).max(20),
+    text: external_exports.string().min(1).max(MAX_CONTEXT_CHARS)
+  }).nullish()
 }).refine((r) => r.passages.reduce((n, p) => n + p.text.length, 0) <= MAX_PASSAGE_CHARS, {
   message: `passages exceed ${MAX_PASSAGE_CHARS} characters in total`
 });
