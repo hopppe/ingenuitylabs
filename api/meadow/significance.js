@@ -46034,6 +46034,25 @@ var ScoreItemSchema = external_exports.object({
   takeaway: external_exports.string()
 });
 var ScoreListSchema = external_exports.object({ scores: external_exports.array(ScoreItemSchema) });
+var MAX_DAILY_QUOTES = 200;
+var DailyRequestSchema = external_exports.object({
+  reference: external_exports.string().min(1).max(120),
+  translation: external_exports.string().min(1).max(20),
+  verseCount: external_exports.number().int().min(1).max(200),
+  text: external_exports.string().min(1).max(MAX_CONTEXT_CHARS),
+  quotes: external_exports.array(
+    external_exports.object({
+      id: external_exports.string().min(1).max(64),
+      text: external_exports.string().min(1).max(400),
+      author: external_exports.string().min(1).max(120)
+    })
+  ).min(1).max(MAX_DAILY_QUOTES)
+});
+var DailyPickSchema = external_exports.object({
+  verse: external_exports.number(),
+  quoteId: external_exports.string(),
+  line: external_exports.string()
+});
 
 // lib/openai.ts
 var API = "https://api.openai.com/v1/responses";
