@@ -46002,7 +46002,7 @@ var InsightRequestSchema = external_exports.object({
       translation: external_exports.string().min(1).max(20),
       text: external_exports.string().min(1).max(MAX_PASSAGE_CHARS)
     })
-  ).min(1).max(40),
+  ).max(40),
   question: external_exports.string().max(MAX_QUESTION_CHARS).nullish(),
   history: external_exports.array(
     external_exports.object({
@@ -46016,6 +46016,8 @@ var InsightRequestSchema = external_exports.object({
     translation: external_exports.string().min(1).max(20),
     text: external_exports.string().min(1).max(MAX_CONTEXT_CHARS)
   }).nullish()
+}).refine((r) => r.passages.length > 0 || r.kind === "ask" && !!r.context, {
+  message: "passages required unless asking with context"
 }).refine((r) => r.passages.reduce((n, p) => n + p.text.length, 0) <= MAX_PASSAGE_CHARS, {
   message: `passages exceed ${MAX_PASSAGE_CHARS} characters in total`
 });
@@ -46161,7 +46163,7 @@ var KIND_INSTRUCTIONS = {
   explain: "Explain the selected passage: what it says, what it meant, and why it matters.",
   mainPoint: "State the main point of the selected passage in one or two sentences, then briefly show how the text supports it.",
   summarize: "Summarize the selected passage faithfully in a few sentences, without adding ideas that are not there.",
-  ask: "Answer the reader's question about the selected passage.",
+  ask: "Answer the reader's question as a conversation. If it concerns the open passage or chapter, ground the answer there (cite verse numbers). If it is a general question about the Bible, theology, history or Christian life, answer it directly and helpfully from Scripture as a whole, citing references, even if it goes beyond the open passage.",
   wordStudy: "Explain the original-language word or phrase the reader asks about, in the context of this passage: its meaning, range, and how it shapes the sense of the verse.",
   references: 'Say what the selected verses quote, allude to, or echo: Old and New Testament cross-references, with references (for example "Num 21:8-9"), and one line each on how the link illuminates the verse. Only name connections you are confident are real; if the selection has no clear allusions, say so and name the nearest relevant passages.',
   apply: "Suggest how the reader might live this passage out today: two or three concrete, humble, realistic ways, rooted in what the text actually says."
@@ -46170,7 +46172,7 @@ var BASE_RULES = `You are Meadow Insight, a thoughtful Bible study companion ins
 
 Rules for every answer:
 - Plain language. Markdown allowed, but no headings and no preamble ("Great question") and no closing summary of what you just did.
-- Answer about the SELECTED passage (<passages>). If <context> is present, use it silently to read the selection in its setting: who is speaking and to whom, the flow of the argument, Old Testament background. Do not summarize the context unless asked.
+- Answer about the SELECTED passage (<passages>), unless the Task says the question may go beyond it. If <context> is present, use it silently to read the selection in its setting: who is speaking and to whom, the flow of the argument, Old Testament background. Do not summarize the context unless asked.
 - Cite verse numbers (for example "v. 16" or "vv. 16-17") when you refer to specific lines. Quote only text that is in the passage or context.
 - When faithful Christians and scholars differ, say so briefly and fairly.
 - Do not invent quotes, historical facts, or Greek/Hebrew details. If you are unsure, say so.

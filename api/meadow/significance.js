@@ -46002,7 +46002,7 @@ var InsightRequestSchema = external_exports.object({
       translation: external_exports.string().min(1).max(20),
       text: external_exports.string().min(1).max(MAX_PASSAGE_CHARS)
     })
-  ).min(1).max(40),
+  ).max(40),
   question: external_exports.string().max(MAX_QUESTION_CHARS).nullish(),
   history: external_exports.array(
     external_exports.object({
@@ -46016,6 +46016,8 @@ var InsightRequestSchema = external_exports.object({
     translation: external_exports.string().min(1).max(20),
     text: external_exports.string().min(1).max(MAX_CONTEXT_CHARS)
   }).nullish()
+}).refine((r) => r.passages.length > 0 || r.kind === "ask" && !!r.context, {
+  message: "passages required unless asking with context"
 }).refine((r) => r.passages.reduce((n, p) => n + p.text.length, 0) <= MAX_PASSAGE_CHARS, {
   message: `passages exceed ${MAX_PASSAGE_CHARS} characters in total`
 });
