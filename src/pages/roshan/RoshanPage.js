@@ -81,7 +81,7 @@ const Hero = ({ t, contactHref }) => {
         </h1>
         <p className="rs-hero-sub">{t.hero.sub}</p>
         <div className="rs-actions">
-          <External href={DEMO_URL} className="rs-btn rs-btn-mint">
+          <External href={DEMO_URL} className="rs-btn rs-btn-gold">
             {t.hero.primary}
           </External>
           <a href={contactHref} className="rs-btn rs-btn-ghost">
@@ -219,7 +219,7 @@ const Cta = ({ t, contactHref }) => (
     <h2>{t.cta.title}</h2>
     <p>{t.cta.sub}</p>
     <div className="rs-actions">
-      <a href={contactHref} className="rs-btn rs-btn-mint">
+      <a href={contactHref} className="rs-btn rs-btn-gold">
         {t.cta.primary}
       </a>
       <a href={`mailto:${CONTACT_EMAIL}`} className="rs-cta-email">

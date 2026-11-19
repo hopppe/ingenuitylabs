@@ -34,12 +34,12 @@ const HeroArt = ({ labels, title }) => (
   >
     <defs>
       <radialGradient id="rs-glow" cx="50%" cy="58%" r="50%">
-        <stop offset="0%" stopColor="#48E5C2" stopOpacity="0.28" />
-        <stop offset="100%" stopColor="#48E5C2" stopOpacity="0" />
+        <stop offset="0%" stopColor="#C9A45C" stopOpacity="0.16" />
+        <stop offset="100%" stopColor="#C9A45C" stopOpacity="0" />
       </radialGradient>
       <linearGradient id="rs-cup" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#F8C35E" />
-        <stop offset="100%" stopColor="#E59A22" />
+        <stop offset="0%" stopColor="#FFFFFF" />
+        <stop offset="100%" stopColor="#D8D2C6" />
       </linearGradient>
     </defs>
 
@@ -69,13 +69,13 @@ const HeroArt = ({ labels, title }) => (
 
     {/* hub */}
     <circle cx={HUB.x} cy={HUB.y} r="14" className="rs-art-hub-ring" />
-    <circle cx={HUB.x} cy={HUB.y} r="6" fill="#48E5C2" />
+    <circle cx={HUB.x} cy={HUB.y} r="6" fill="#C9A45C" />
 
     {/* cup */}
     <g>
-      <ellipse cx="280" cy="458" rx="104" ry="16" fill="#0A2633" />
-      <ellipse cx="280" cy="448" rx="96" ry="14" fill="#1C5670" />
-      <path d="M352 392 a28 26 0 1 1 -6 50" fill="none" stroke="#E59A22" strokeWidth="10" />
+      <ellipse cx="280" cy="458" rx="104" ry="16" fill="#0A1824" />
+      <ellipse cx="280" cy="448" rx="96" ry="14" fill="#1A3A52" />
+      <path d="M352 392 a28 26 0 1 1 -6 50" fill="none" stroke="#E4DFD5" strokeWidth="10" />
       <path
         d="M200 376 h160 l-10 54 a30 30 0 0 1 -30 22 h-80 a30 30 0 0 1 -30 -22 z"
         fill="url(#rs-cup)"
@@ -95,7 +95,7 @@ const HeroArt = ({ labels, title }) => (
         />
         <g
           fill="none"
-          stroke="#48E5C2"
+          stroke="#C9A45C"
           strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
