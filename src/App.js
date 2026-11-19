@@ -34,6 +34,7 @@ import AIHomeServices from "./pages/AIHomeServices";
 import AIMeetingPrep from "./pages/AIMeetingPrep";
 import AISaudiBusiness from "./pages/AISaudiBusiness";
 import AIRealEstate from "./pages/AIRealEstate";
+import { Roshan, RoshanAr } from "./pages/roshan/RoshanPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import './App.css';
@@ -83,6 +84,9 @@ function App() {
         <Route path="/ai-meeting-prep" element={<AIMeetingPrep />} />
         <Route path="/ai-for-saudi-business" element={<AISaudiBusiness />} />
         <Route path="/ai-for-real-estate" element={<AIRealEstate />} />
+        {/* AI for cafés offering (sales link) */}
+        <Route path="/roshan" element={<Roshan />} />
+        <Route path="/ar/roshan" element={<RoshanAr />} />
       </Routes>
       <Footer />
     </Router>

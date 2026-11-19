@@ -66,6 +66,9 @@ const EXTRA_ROUTES = [
   "/lossboss-terms",
   "/ghosted-privacy",
   "/ghosted-terms",
+  // Capitalised sales link (ingenuitylabs.net/Roshan) gets its own static copy so
+  // WhatsApp/iMessage link previews show the page's title and image.
+  "/Roshan",
 ];
 
 function routesFromSitemap() {

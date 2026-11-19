@@ -6,8 +6,8 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const { pathname } = useLocation();
-  const LIGHT_PATHS = ['/', '/about', '/contact', '/ai-for-home-services', '/ai-meeting-prep', '/ai-for-saudi-business', '/ai-for-real-estate'];
-  const isLight = LIGHT_PATHS.includes(pathname);
+  const LIGHT_PATHS = ['/', '/about', '/contact', '/ai-for-home-services', '/ai-meeting-prep', '/ai-for-saudi-business', '/ai-for-real-estate', '/roshan', '/ar/roshan'];
+  const isLight = LIGHT_PATHS.includes(pathname.toLowerCase().replace(/\/+$/, '') || '/');
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
