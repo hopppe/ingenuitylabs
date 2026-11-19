@@ -9,16 +9,18 @@ const PAGES = {
   en: {
     path: "/roshan",
     lang: "en",
+    image: "/roshan-og.jpg",
     title: "AI for Cafés & Restaurants in Saudi Arabia | Ingenuity Labs",
     description:
-      "WhatsApp ordering, an Arabic voice barista, QR menus, automatic restocking, staffing and review replies — AI built for Saudi cafés and restaurants. Try every feature live on our demo café.",
+      "We build AI for cafés and restaurants: it answers your WhatsApp, takes orders, reorders stock, plans staff and replies to reviews, in Arabic and English. Try it live on our demo café.",
   },
   ar: {
     path: "/ar/roshan",
     lang: "ar",
+    image: "/roshan-og-ar.jpg",
     title: "الذكاء الاصطناعي للمقاهي والمطاعم في السعودية | Ingenuity Labs",
     description:
-      "طلبات واتساب، باريستا صوتي بالعربي، منيو QR، إعادة تعبئة المخزون تلقائياً، جدولة الموظفين والرد على التقييمات — جرّب كل ميزة مباشرة على مقهانا التجريبي.",
+      "نبني حلول الذكاء الاصطناعي للمقاهي والمطاعم: يرد على الواتساب، ويستقبل الطلبات، ويطلب المخزون، وينظّم دوام الموظفين، ويرد على التقييمات. جرّبها مباشرة على مقهانا التجريبي.",
   },
 };
 
@@ -31,7 +33,7 @@ const DEFAULT_TAGS =
 
 const headTags = (page) => {
   const url = `${SITE}${page.path}`;
-  const image = `${SITE}/roshan-og.jpg`;
+  const image = `${SITE}${page.image}`;
   return [
     `<title>${esc(page.title)}</title>`,
     `<meta name="description" content="${esc(page.description)}">`,

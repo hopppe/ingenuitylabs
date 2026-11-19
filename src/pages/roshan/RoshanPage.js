@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Seo from "../../components/Seo";
 import { EN, AR, DEMO_URL, CONTACT_EMAIL } from "./content";
 import "../Home.css";
@@ -8,6 +8,51 @@ import "./Roshan.css";
 
 const ARABIC_FONT =
   "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap";
+
+const LANG_KEY = "rs-lang";
+
+const readLangChoice = () => {
+  try {
+    return window.localStorage.getItem(LANG_KEY);
+  } catch {
+    return null;
+  }
+};
+
+const saveLangChoice = (lang) => {
+  try {
+    window.localStorage.setItem(LANG_KEY, lang);
+  } catch {
+    // storage blocked (private mode): the toggle still works for this visit
+  }
+};
+
+// Arabic-language phones opening the English link land on the Arabic page,
+// unless the visitor picked a language with the toggle before.
+const useArabicByDefault = (t) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (t.lang !== "en") return;
+    const choice = readLangChoice();
+    const prefersArabic = (navigator.languages || [navigator.language || ""]).some(
+      (l) => String(l).toLowerCase().startsWith("ar")
+    );
+    if (choice !== "en" && (choice === "ar" || prefersArabic)) {
+      navigate(t.altPath, { replace: true });
+    }
+  }, [t, navigate]);
+};
+
+const Glance = ({ t }) => (
+  <section className="rs-glance" aria-label={t.glanceKicker}>
+    {t.glance.map((g) => (
+      <div className="rs-glance-item" key={g.title}>
+        <h2>{g.title}</h2>
+        <p>{g.desc}</p>
+      </div>
+    ))}
+  </section>
+);
 
 const External = ({ href, className, children }) => (
   <a href={href} className={className} target="_blank" rel="noopener noreferrer">
@@ -71,6 +116,7 @@ const RoshanPage = ({ t }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  useArabicByDefault(t);
 
   const contactHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
     t.lang === "ar" ? "عرض الذكاء الاصطناعي للمقاهي" : "AI for cafés — walkthrough"
@@ -78,7 +124,7 @@ const RoshanPage = ({ t }) => {
 
   return (
     <main className={`home niche rs rs-${t.lang}`} dir={t.dir} lang={t.lang}>
-      <Seo {...t.seo} path={t.path} image="/roshan-og.jpg" imageAlt={t.seo.title}>
+      <Seo {...t.seo} path={t.path} image={t.lang === "ar" ? "/roshan-og-ar.jpg" : "/roshan-og.jpg"} imageAlt={t.seo.title}>
         <link rel="alternate" hrefLang="en" href="https://ingenuitylabs.net/roshan" />
         <link rel="alternate" hrefLang="ar" href="https://ingenuitylabs.net/ar/roshan" />
         {t.lang === "ar" && (
@@ -104,7 +150,12 @@ const RoshanPage = ({ t }) => {
         <div className="hero-text">
           <div className="rs-hero-top">
             <p className="hero-meta">{t.hero.meta}</p>
-            <Link to={t.altPath} className="rs-lang" lang={t.lang === "ar" ? "en" : "ar"}>
+            <Link
+              to={t.altPath}
+              className="rs-lang"
+              lang={t.lang === "ar" ? "en" : "ar"}
+              onClick={() => saveLangChoice(t.lang === "ar" ? "en" : "ar")}
+            >
               {t.altLabel}
             </Link>
           </div>
@@ -130,6 +181,8 @@ const RoshanPage = ({ t }) => {
           <MenuBoard t={t} />
         </div>
       </section>
+
+      <Glance t={t} />
 
       <section className="services rs-menu">
         <p className="kicker">{t.menuKicker}</p>
