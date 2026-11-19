@@ -32,6 +32,18 @@
       "destination": "/api/ghosted/crewinvite?key=:key"
     },
     {
+      "source": "/roshan",
+      "destination": "/api/roshan-page?lang=en"
+    },
+    {
+      "source": "/Roshan",
+      "destination": "/api/roshan-page?lang=en"
+    },
+    {
+      "source": "/ar/roshan",
+      "destination": "/api/roshan-page?lang=ar"
+    },
+    {
       "source": "/:path*",
       "destination": "/index.html"
     }
