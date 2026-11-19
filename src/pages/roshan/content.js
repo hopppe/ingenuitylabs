@@ -32,6 +32,14 @@ export const EN = {
     { title: "Plans your staff", desc: "Rotas built around rush hours, prayer times and Ramadan." },
     { title: "Replies to every review", desc: "Google and delivery-app reviews answered in the customer’s language." },
   ],
+  statement: "We set it up. We connect it to your WhatsApp and POS. We stay until it works.",
+  pinnedTitle: "Most cafés have the tools, not the time.",
+  pinnedBody: "WhatsApp, a POS, Google reviews, a warehouse. The AI connects them and does the repetitive work, so your team can focus on the bar.",
+  shotDesc: {
+    site: "The café’s own website, with its menu, beans, brew guides and branches.",
+    barista: "Talk to Ahmad in Arabic or English. He answers from the real menu.",
+    studio: "Stock, forecasts and purchase orders across every branch.",
+  },
   art: {
     label: "A coffee cup whose steam becomes a network linking WhatsApp, voice, menu, stock, staff and reviews",
     nodes: ["WhatsApp", "Voice", "QR menu", "Stock", "Staff", "Reviews"],
@@ -241,6 +249,14 @@ export const AR = {
     { title: "ينظّم دوام الموظفين", desc: "جداول دوام حسب أوقات الذروة والصلاة ورمضان." },
     { title: "يرد على كل تقييم", desc: "تقييمات Google وتطبيقات التوصيل يُرد عليها بلغة العميل." },
   ],
+  statement: "نجهّزه لك. نربطه بالواتساب ونظام نقاط البيع. ونبقى معك حتى يشتغل.",
+  pinnedTitle: "أغلب المقاهي عندها الأدوات، بس ما عندها الوقت.",
+  pinnedBody: "واتساب، ونظام نقاط بيع، وتقييمات Google، ومستودع. الذكاء الاصطناعي يربطها ويقوم بالعمل المتكرر، وفريقك يتفرغ للبار.",
+  shotDesc: {
+    site: "موقع المقهى نفسه، بالمنيو وأنواع البن وطرق التحضير والفروع.",
+    barista: "كلّم أحمد بالعربي أو الإنجليزي. يجاوب من المنيو الحقيقي.",
+    studio: "المخزون والتوقعات وأوامر الشراء لكل الفروع.",
+  },
   art: {
     label: "فنجان قهوة يتحول بخاره إلى شبكة تربط الواتساب والصوت والمنيو والمخزون والموظفين والتقييمات",
     nodes: ["واتساب", "صوت", "منيو QR", "المخزون", "الموظفين", "التقييمات"],

@@ -7,10 +7,10 @@ function Navbar() {
   const menuRef = useRef(null);
   const { pathname } = useLocation();
   const LIGHT_PATHS = ['/', '/about', '/contact', '/ai-for-home-services', '/ai-meeting-prep', '/ai-for-saudi-business', '/ai-for-real-estate'];
-  const NAVY_PATHS = ['/roshan', '/ar/roshan'];
+  const PAPER_PATHS = ['/roshan', '/ar/roshan'];
   const normalizedPath = pathname.toLowerCase().replace(/\/+$/, '') || '/';
   const isLight = LIGHT_PATHS.includes(normalizedPath);
-  const isNavy = NAVY_PATHS.includes(normalizedPath);
+  const isPaper = PAPER_PATHS.includes(normalizedPath);
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -31,7 +31,7 @@ function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className={isLight ? 'navbar navbar-light' : isNavy ? 'navbar navbar-navy' : 'navbar'}>
+    <nav className={isPaper ? 'navbar navbar-light navbar-paper' : isLight ? 'navbar navbar-light' : 'navbar'}>
       <Link to="/" className="navbar-logo">
         <svg
           className="logo-mark"
