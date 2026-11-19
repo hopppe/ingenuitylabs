@@ -6,12 +6,14 @@ import Seo from "../components/Seo";
 import "./Home.css";
 import ffConsoleImg from "../assets/friendly-fixers-console.png";
 import ffQuoteImg from "../assets/friendly-fixers-quote.png";
-import prayerPauseIcon from "../assets/prayerpause-icon.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const anafluentIcon =
   "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/6b/46/4b6b46cf-8f80-1561-3eae-6d227b7ad050/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg";
+
+const equisplitIcon =
+  "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/8f/b9/338fb9d9-afa2-8071-2709-74f67ffcf5ba/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg";
 
 /* ── Hero demo: custom AI systems, replayed live ── */
 
@@ -177,11 +179,11 @@ const SERVICES = [
 
 const WORK = [
   {
-    name: "Prayer Pause",
-    description: "Blocks distracting apps until your daily prayer is done",
+    name: "EquiSplit",
+    description: "Expense splitting with a clean, simple UI. Free, forever.",
     tag: "iOS",
-    icon: prayerPauseIcon,
-    to: "/prayer-pause",
+    icon: equisplitIcon,
+    to: "/equisplit",
   },
   {
     name: "anaFluent",

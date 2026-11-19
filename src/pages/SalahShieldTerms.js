@@ -4,6 +4,8 @@ import "./PrivacyPolicy.css";
 const SalahShieldTerms = () => {
   return (
     <main className="privacy-policy">
+      {/* Kept only for the App Store listing; not linked or indexed. */}
+      <meta name="robots" content="noindex" />
       <div className="privacy-policy-container">
         <div className="privacy-policy-header">
           <h1>Terms of Use for SalahShield</h1>

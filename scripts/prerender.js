@@ -50,7 +50,6 @@ function serveBuild() {
 const EXTRA_ROUTES = [
   "/privacy-policy",
   "/kingdom-arabic-privacy",
-  "/kingdom-arabic/download",
   "/star-date-privacy",
   "/star-date-terms",
   "/prayer-pause-privacy",

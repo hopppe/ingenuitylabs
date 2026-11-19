@@ -50,6 +50,26 @@
   ],
   "redirects": [
     {
+      "source": "/kingdom-arabic",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/kingdom-arabic/download",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/prayer-pause",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/salah-shield",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/lossboss",
       "destination": "https://lossboss.app/",
       "permanent": true
