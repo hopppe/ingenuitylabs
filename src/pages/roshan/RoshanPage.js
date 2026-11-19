@@ -2,13 +2,17 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Seo from "../../components/Seo";
 import { EN, AR, DEMO_URL, CONTACT_EMAIL } from "./content";
-import "../Home.css";
-import "../AIHomeServices.css";
+import HeroArt from "./HeroArt";
+import { GLANCE_MOCKS } from "./GlanceMocks";
+import { Glyph, ICON_BY_PATH } from "./glyphs";
+import shotSite from "../../assets/roshan/demo-site.jpg";
+import shotBarista from "../../assets/roshan/demo-barista.jpg";
+import shotStudio from "../../assets/roshan/demo-studio.jpg";
 import "./Roshan.css";
 
-const ARABIC_FONT =
-  "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap";
-
+const FONTS =
+  "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Readex+Pro:wght@300..700&display=swap";
+const SHOTS = { site: shotSite, barista: shotBarista, studio: shotStudio };
 const LANG_KEY = "rs-lang";
 
 const readLangChoice = () => {
@@ -43,73 +47,186 @@ const useArabicByDefault = (t) => {
   }, [t, navigate]);
 };
 
-const Glance = ({ t }) => (
-  <section className="rs-glance" aria-label={t.glanceKicker}>
-    {t.glance.map((g) => (
-      <div className="rs-glance-item" key={g.title}>
-        <h2>{g.title}</h2>
-        <p>{g.desc}</p>
-      </div>
-    ))}
-  </section>
-);
-
 const External = ({ href, className, children }) => (
   <a href={href} className={className} target="_blank" rel="noopener noreferrer">
     {children}
   </a>
 );
 
-const MenuBoard = ({ t }) => (
-  <aside className="rs-board" aria-label={t.board.title}>
-    <div className="rs-board-head">
-      <p className="rs-board-title">{t.board.title}</p>
-      <p className="rs-board-sub">{t.board.subtitle}</p>
+const iconFor = (link) => ICON_BY_PATH[link.replace(DEMO_URL, "")] || "brief";
+
+const Hero = ({ t, contactHref }) => {
+  const other = t.lang === "ar" ? "en" : "ar";
+  return (
+    <section className="rs-hero">
+      <div className="rs-hero-text">
+        <div className="rs-hero-top">
+          <p className="rs-meta">{t.hero.meta}</p>
+          <Link
+            to={t.altPath}
+            className="rs-lang"
+            lang={other}
+            onClick={() => saveLangChoice(other)}
+          >
+            {t.altLabel}
+          </Link>
+        </div>
+        <h1>
+          {t.hero.title.map((line, i) => (
+            <React.Fragment key={line}>
+              {i > 0 && " "}
+              <span className="rs-h1-line">{line}</span>
+            </React.Fragment>
+          ))}
+        </h1>
+        <p className="rs-hero-sub">{t.hero.sub}</p>
+        <div className="rs-actions">
+          <External href={DEMO_URL} className="rs-btn rs-btn-mint">
+            {t.hero.primary}
+          </External>
+          <a href={contactHref} className="rs-btn rs-btn-ghost">
+            {t.hero.secondary}
+          </a>
+        </div>
+      </div>
+      <div className="rs-hero-art">
+        <HeroArt labels={t.art.nodes} title={t.art.label} />
+      </div>
+    </section>
+  );
+};
+
+const Glance = ({ t }) => (
+  <section className="rs-glance" aria-label={t.glanceKicker}>
+    {t.glance.map((g, i) => {
+      const Mock = GLANCE_MOCKS[i];
+      return (
+        <div className="rs-glance-item" key={g.title}>
+          {Mock && <Mock m={t.mocks} />}
+          <h2>{g.title}</h2>
+          <p>{g.desc}</p>
+        </div>
+      );
+    })}
+  </section>
+);
+
+const Menu = ({ t }) => (
+  <section className="rs-menu" aria-labelledby="rs-menu-title">
+    <div className="rs-section-head">
+      <h2 id="rs-menu-title">{t.board.title}</h2>
+      <p>{t.board.subtitle}</p>
     </div>
     {t.sections.map((section) => (
-      <div className="rs-board-group" key={section.id}>
-        <p className="rs-board-group-name">{section.name}</p>
-        <ul>
+      <div className={`rs-group rs-group-${section.id}`} key={section.id}>
+        <div className="rs-group-head">
+          <h3>{section.name}</h3>
+          <p>{section.note}</p>
+        </div>
+        <ul className="rs-items">
           {section.items.map((item) => (
-            <li key={item.short}>
-              <a href={`#${section.id}-${item.short}`} className="rs-board-item">
-                <span>{item.short}</span>
-                <span className="rs-board-dots" aria-hidden="true" />
-                <span className="rs-board-live">{t.board.live}</span>
-              </a>
+            <li className="rs-item" key={item.name}>
+              <span className="rs-item-icon">
+                <Glyph name={iconFor(item.link)} />
+              </span>
+              <div className="rs-item-body">
+                <h4>{item.name}</h4>
+                <p>{item.desc}</p>
+                <p className="rs-item-replaces">{item.replaces}</p>
+              </div>
+              <External href={item.link} className="rs-try">
+                {t.tryIt} <span aria-hidden="true">↗</span>
+              </External>
             </li>
           ))}
         </ul>
       </div>
     ))}
-  </aside>
+  </section>
 );
 
-const MenuSection = ({ section, tryIt }) => (
-  <div className="rs-section">
-    <div className="rs-section-head">
-      <h2>{section.name}</h2>
-      <p>{section.note}</p>
+const DemoCafe = ({ t }) => (
+  <section className="rs-demo">
+    <div className="rs-demo-text">
+      <h2>{t.demo.title}</h2>
+      <p>{t.demo.body}</p>
+      <p>{t.demo.body2}</p>
+      <External href={DEMO_URL} className="rs-btn rs-btn-navy">
+        {t.demo.cta}
+      </External>
     </div>
-    <div className="services-list">
-      {section.items.map((item) => (
-        <article
-          className="service-row rs-item"
-          key={item.name}
-          id={`${section.id}-${item.short}`}
-        >
-          <h3>{item.name}</h3>
-          <div className="service-detail">
-            <p>{item.desc}</p>
-            <p className="service-proof">{item.replaces}</p>
-            <External href={item.link} className="rs-try">
-              {tryIt} <span aria-hidden="true">↗</span>
-            </External>
-          </div>
-        </article>
+    <div className="rs-shots">
+      {t.shots.map((shot, i) => (
+        <External href={t.demo.links[i].href} className={`rs-shot rs-shot-${i}`} key={shot.key}>
+          <span className="rs-shot-bar" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
+          <img src={SHOTS[shot.key]} alt={shot.caption} width="1280" height="800" loading="lazy" />
+          <span className="rs-shot-caption">{shot.caption}</span>
+        </External>
       ))}
     </div>
-  </div>
+  </section>
+);
+
+const Steps = ({ t }) => (
+  <section className="rs-steps">
+    <h2>{t.stepsKicker}</h2>
+    <ol>
+      {t.steps.map((s, i) => (
+        <li key={s.title}>
+          <span className="rs-step-num">{i + 1}</span>
+          <h3>{s.title}</h3>
+          <p>{s.desc}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+);
+
+const Why = ({ t }) => (
+  <section className="rs-why">
+    <h2>{t.whyKicker}</h2>
+    <div className="rs-why-grid">
+      {t.why.map((w) => (
+        <div key={w.title}>
+          <h3>{w.title}</h3>
+          <p>{w.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+const Faq = ({ t }) => (
+  <section className="rs-faq">
+    <h2>{t.faqTitle}</h2>
+    <div className="rs-faq-list">
+      {t.faqs.map((faq) => (
+        <details key={faq.q}>
+          <summary>{faq.q}</summary>
+          <p>{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+);
+
+const Cta = ({ t, contactHref }) => (
+  <section className="rs-cta">
+    <h2>{t.cta.title}</h2>
+    <p>{t.cta.sub}</p>
+    <div className="rs-actions">
+      <a href={contactHref} className="rs-btn rs-btn-mint">
+        {t.cta.primary}
+      </a>
+      <a href={`mailto:${CONTACT_EMAIL}`} className="rs-cta-email">
+        {t.cta.email}
+      </a>
+    </div>
+  </section>
 );
 
 const RoshanPage = ({ t }) => {
@@ -119,17 +236,20 @@ const RoshanPage = ({ t }) => {
   useArabicByDefault(t);
 
   const contactHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-    t.lang === "ar" ? "عرض الذكاء الاصطناعي للمقاهي" : "AI for cafés — walkthrough"
+    t.lang === "ar" ? "عرض الذكاء الاصطناعي للمقاهي" : "AI for cafés: walkthrough"
   )}`;
 
   return (
-    <main className={`home niche rs rs-${t.lang}`} dir={t.dir} lang={t.lang}>
-      <Seo {...t.seo} path={t.path} image={t.lang === "ar" ? "/roshan-og-ar.jpg" : "/roshan-og.jpg"} imageAlt={t.seo.title}>
+    <main className={`rs rs-${t.lang}`} dir={t.dir} lang={t.lang}>
+      <Seo
+        {...t.seo}
+        path={t.path}
+        image={t.lang === "ar" ? "/roshan-og-ar.jpg" : "/roshan-og.jpg"}
+        imageAlt={t.seo.title}
+      >
         <link rel="alternate" hrefLang="en" href="https://ingenuitylabs.net/roshan" />
         <link rel="alternate" hrefLang="ar" href="https://ingenuitylabs.net/ar/roshan" />
-        {t.lang === "ar" && (
-          <link rel="stylesheet" href={ARABIC_FONT} precedence="default" />
-        )}
+        <link rel="stylesheet" href={FONTS} precedence="default" />
       </Seo>
       <script
         type="application/ld+json"
@@ -145,127 +265,14 @@ const RoshanPage = ({ t }) => {
           }),
         }}
       />
-
-      <section className="home-hero niche-hero rs-hero">
-        <div className="hero-text">
-          <div className="rs-hero-top">
-            <p className="hero-meta">{t.hero.meta}</p>
-            <Link
-              to={t.altPath}
-              className="rs-lang"
-              lang={t.lang === "ar" ? "en" : "ar"}
-              onClick={() => saveLangChoice(t.lang === "ar" ? "en" : "ar")}
-            >
-              {t.altLabel}
-            </Link>
-          </div>
-          <h1>
-            {t.hero.title.map((line, i) => (
-              <React.Fragment key={line}>
-                {i > 0 && " "}
-                <span className="hero-line">{line}</span>
-              </React.Fragment>
-            ))}
-          </h1>
-          <p className="hero-sub">{t.hero.sub}</p>
-          <div className="hero-actions">
-            <External href={DEMO_URL} className="btn-solid">
-              {t.hero.primary} <span aria-hidden="true">↗</span>
-            </External>
-            <a href={contactHref} className="btn-quiet">
-              {t.hero.secondary}
-            </a>
-          </div>
-        </div>
-        <div className="hero-demo">
-          <MenuBoard t={t} />
-        </div>
-      </section>
-
+      <Hero t={t} contactHref={contactHref} />
       <Glance t={t} />
-
-      <section className="services rs-menu">
-        <p className="kicker">{t.menuKicker}</p>
-        {t.sections.map((section) => (
-          <MenuSection key={section.id} section={section} tryIt={t.tryIt} />
-        ))}
-      </section>
-
-      <section className="rs-demo">
-        <div className="rs-demo-text">
-          <p className="kicker">{t.demo.kicker}</p>
-          <h2>{t.demo.title}</h2>
-          <p>{t.demo.body}</p>
-          <p>{t.demo.body2}</p>
-          <External href={DEMO_URL} className="btn-solid">
-            {t.demo.cta} <span aria-hidden="true">↗</span>
-          </External>
-        </div>
-        <ul className="rs-demo-links">
-          {t.demo.links.map((l) => (
-            <li key={l.href}>
-              <External href={l.href}>
-                <span>{l.label}</span>
-                <span className="rs-demo-url" dir="ltr">
-                  {l.href.replace("https://", "")}
-                </span>
-              </External>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="rs-steps">
-        <p className="kicker">{t.stepsKicker}</p>
-        <ol>
-          {t.steps.map((s, i) => (
-            <li key={s.title}>
-              <span className="rs-step-num">{String(i + 1).padStart(2, "0")}</span>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="rs-why">
-        <p className="kicker">{t.whyKicker}</p>
-        <div className="rs-why-grid">
-          {t.why.map((w) => (
-            <div key={w.title}>
-              <h3>{w.title}</h3>
-              <p>{w.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="niche-faq">
-        <div className="faq-list">
-          {t.faqs.map((faq) => (
-            <details className="faq-item" key={faq.q}>
-              <summary>{faq.q}</summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="cta">
-        <div className="cta-inner">
-          <p className="kicker kicker-light">{t.cta.kicker}</p>
-          <h2>{t.cta.title}</h2>
-          <p className="cta-sub">{t.cta.sub}</p>
-          <div className="cta-actions">
-            <a href={contactHref} className="btn-light">
-              {t.cta.primary}
-            </a>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="cta-email">
-              {t.cta.email}
-            </a>
-          </div>
-        </div>
-      </section>
+      <Menu t={t} />
+      <DemoCafe t={t} />
+      <Steps t={t} />
+      <Why t={t} />
+      <Faq t={t} />
+      <Cta t={t} contactHref={contactHref} />
     </main>
   );
 };

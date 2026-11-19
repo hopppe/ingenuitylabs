@@ -19,7 +19,7 @@ export const EN = {
       "WhatsApp ordering, an Arabic voice barista, QR menus, automatic restocking, staffing and review replies — AI built for Saudi cafés and restaurants by Ingenuity Labs. Try every feature live on our demo café.",
   },
   hero: {
-    meta: "Ingenuity Labs · Jeddah, Saudi Arabia",
+    meta: "Ingenuity Labs, Jeddah",
     title: ["We build AI", "for cafés and", "restaurants."],
     sub: "It answers your WhatsApp, takes orders, reorders stock, plans your staff and replies to reviews, in Arabic and English. See every tool working on Roshan Coffee, our live demo café.",
     primary: "See it live on our demo café",
@@ -31,6 +31,26 @@ export const EN = {
     { title: "Never runs out", desc: "Reorders stock from the warehouse before it’s gone." },
     { title: "Plans your staff", desc: "Rotas built around rush hours, prayer times and Ramadan." },
     { title: "Replies to every review", desc: "Google and delivery-app reviews answered in the customer’s language." },
+  ],
+  art: {
+    label: "A coffee cup whose steam becomes a network linking WhatsApp, voice, menu, stock, staff and reviews",
+    nodes: ["WhatsApp", "Voice", "QR menu", "Stock", "Staff", "Reviews"],
+  },
+  mocks: {
+    chatIn: "One hot Spanish latte, pickup at Al-Balad",
+    chatOut: "Done. Spanish latte, SAR 22. Ready at 4:10.",
+    stockItem: "Oat milk",
+    stockLeft: "1.5 days left",
+    stockSent: "Sent to the warehouse on WhatsApp",
+    staffDay: "Thursday",
+    staffNote: "Rush 8–11 pm. Breaks around prayer times.",
+    reviewIn: "Great coffee, but slow after 9 pm.",
+    reviewOut: "Thank you, Sara. We’ve added a barista after 9.",
+  },
+  shots: [
+    { key: "site", caption: "Café website" },
+    { key: "barista", caption: "Voice barista" },
+    { key: "studio", caption: "Stock dashboard" },
   ],
   board: {
     title: "The menu",
@@ -164,6 +184,7 @@ export const EN = {
       desc: "Your menu, your brand, your data. No per-seat licence and no platform you are locked into.",
     },
   ],
+  faqTitle: "Common questions",
   faqs: [
     {
       q: "Do my staff need to learn new software?",
@@ -207,7 +228,7 @@ export const AR = {
       "طلبات واتساب، باريستا صوتي بالعربي، منيو QR، إعادة تعبئة المخزون تلقائياً، جدولة الموظفين والرد على التقييمات — ذكاء اصطناعي مصمم للمقاهي والمطاعم السعودية. جرّب كل ميزة مباشرة على مقهانا التجريبي.",
   },
   hero: {
-    meta: "Ingenuity Labs · جدة، المملكة العربية السعودية",
+    meta: "Ingenuity Labs، جدة",
     title: ["نبني حلول الذكاء الاصطناعي", "للمقاهي والمطاعم."],
     sub: "يرد على الواتساب، ويستقبل الطلبات، ويطلب المخزون، وينظّم دوام الموظفين، ويرد على التقييمات، بالعربي والإنجليزي. شاهد كل الأدوات تعمل مباشرة على «روشن كوفي»، مقهانا التجريبي.",
     primary: "شاهدها مباشرة على مقهانا التجريبي",
@@ -219,6 +240,26 @@ export const AR = {
     { title: "ما ينفد عندك شيء", desc: "يطلب المخزون من المستودع قبل أن ينفد." },
     { title: "ينظّم دوام الموظفين", desc: "جداول دوام حسب أوقات الذروة والصلاة ورمضان." },
     { title: "يرد على كل تقييم", desc: "تقييمات Google وتطبيقات التوصيل يُرد عليها بلغة العميل." },
+  ],
+  art: {
+    label: "فنجان قهوة يتحول بخاره إلى شبكة تربط الواتساب والصوت والمنيو والمخزون والموظفين والتقييمات",
+    nodes: ["واتساب", "صوت", "منيو QR", "المخزون", "الموظفين", "التقييمات"],
+  },
+  mocks: {
+    chatIn: "أبغى سبانش لاتيه حار، استلام من فرع البلد",
+    chatOut: "تم. سبانش لاتيه، ٢٢ ريال. جاهز الساعة ٤:١٠.",
+    stockItem: "حليب الشوفان",
+    stockLeft: "باقي يوم ونص",
+    stockSent: "أُرسل للمستودع على الواتساب",
+    staffDay: "الخميس",
+    staffNote: "ذروة من ٨ إلى ١١ مساءً. الاستراحات حول أوقات الصلاة.",
+    reviewIn: "القهوة ممتازة، بس الخدمة بطيئة بعد ٩ بالليل.",
+    reviewOut: "شكراً سارة. أضفنا باريستا بعد الساعة ٩.",
+  },
+  shots: [
+    { key: "site", caption: "موقع المقهى" },
+    { key: "barista", caption: "الباريستا الصوتي" },
+    { key: "studio", caption: "لوحة المخزون" },
   ],
   board: {
     title: "المنيو",
@@ -352,6 +393,7 @@ export const AR = {
       desc: "منيوك، وهويتك، وبياناتك. بدون رسوم لكل مستخدم، وبدون منصة تقيّدك.",
     },
   ],
+  faqTitle: "أسئلة شائعة",
   faqs: [
     {
       q: "هل يحتاج موظفيني لتعلم برنامج جديد؟",

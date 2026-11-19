@@ -238,3 +238,12 @@
     width: 100%;
   }
 } 
+/* Navy variant for /roshan, matching its hero */
+.navbar.navbar-navy {
+  background-color: #0b2e3c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-navy .nav-menu {
+  background-color: #0b2e3c;
+}

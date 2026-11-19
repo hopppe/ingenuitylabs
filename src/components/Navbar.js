@@ -6,8 +6,11 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const { pathname } = useLocation();
-  const LIGHT_PATHS = ['/', '/about', '/contact', '/ai-for-home-services', '/ai-meeting-prep', '/ai-for-saudi-business', '/ai-for-real-estate', '/roshan', '/ar/roshan'];
-  const isLight = LIGHT_PATHS.includes(pathname.toLowerCase().replace(/\/+$/, '') || '/');
+  const LIGHT_PATHS = ['/', '/about', '/contact', '/ai-for-home-services', '/ai-meeting-prep', '/ai-for-saudi-business', '/ai-for-real-estate'];
+  const NAVY_PATHS = ['/roshan', '/ar/roshan'];
+  const normalizedPath = pathname.toLowerCase().replace(/\/+$/, '') || '/';
+  const isLight = LIGHT_PATHS.includes(normalizedPath);
+  const isNavy = NAVY_PATHS.includes(normalizedPath);
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -28,7 +31,7 @@ function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className={isLight ? 'navbar navbar-light' : 'navbar'}>
+    <nav className={isLight ? 'navbar navbar-light' : isNavy ? 'navbar navbar-navy' : 'navbar'}>
       <Link to="/" className="navbar-logo">
         <svg
           className="logo-mark"
