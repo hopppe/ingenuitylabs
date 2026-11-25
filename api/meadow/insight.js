@@ -46016,8 +46016,8 @@ var InsightRequestSchema = external_exports.object({
     translation: external_exports.string().min(1).max(20),
     text: external_exports.string().min(1).max(MAX_CONTEXT_CHARS)
   }).nullish()
-}).refine((r) => r.passages.length > 0 || r.kind === "ask" && !!r.context, {
-  message: "passages required unless asking with context"
+}).refine((r) => r.passages.length > 0 || r.kind === "ask", {
+  message: "passages required unless asking"
 }).refine((r) => r.passages.reduce((n, p) => n + p.text.length, 0) <= MAX_PASSAGE_CHARS, {
   message: `passages exceed ${MAX_PASSAGE_CHARS} characters in total`
 });
@@ -46163,7 +46163,7 @@ var KIND_INSTRUCTIONS = {
   explain: "Explain the selected passage: what it says, what it meant, and why it matters.",
   mainPoint: "State the main point of the selected passage in one or two sentences, then briefly show how the text supports it.",
   summarize: "Summarize the selected passage faithfully in a few sentences, without adding ideas that are not there.",
-  ask: "Answer the reader's question as a conversation. If it concerns the open passage or chapter, ground the answer there (cite verse numbers). If it is a general question about the Bible, theology, history or Christian life, answer it directly and helpfully from Scripture as a whole, citing references, even if it goes beyond the open passage.",
+  ask: `Answer the reader's question as a conversation. If it concerns the open passage or chapter, ground the answer there (cite verse numbers). If it is a general question about the Bible, theology, history or Christian life, answer it directly and helpfully from Scripture as a whole, citing references, even if it goes beyond the open passage. Write references outside the open chapter in full ("Romans 8:28", not "v. 28") so the reader can tap them to open them.`,
   wordStudy: "Explain the original-language word or phrase the reader asks about, in the context of this passage: its meaning, range, and how it shapes the sense of the verse.",
   references: 'Say what the selected verses quote, allude to, or echo: Old and New Testament cross-references, with references (for example "Num 21:8-9"), and one line each on how the link illuminates the verse. Only name connections you are confident are real; if the selection has no clear allusions, say so and name the nearest relevant passages.',
   apply: "Suggest how the reader might live this passage out today: two or three concrete, humble, realistic ways, rooted in what the text actually says."
@@ -46208,9 +46208,12 @@ ${persona.prompt}`);
 ${DEPTH_RULES[req.depth]}`);
   const passages = req.passages.map((p) => `[${p.reference} (${p.translation})]
 ${p.text}`).join("\n\n");
-  parts.push(`<passages>
+  if (passages) parts.push(`<passages>
 ${passages}
 </passages>`);
+  if (!passages && !req.context) {
+    parts.push("No passage is open for this question: answer from Scripture as a whole, citing references in full.");
+  }
   if (req.context) {
     parts.push(`<context>
 [${req.context.reference} (${req.context.translation})]
